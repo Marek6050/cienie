@@ -1,0 +1,26 @@
+services:
+  baza:
+    image: mysql:8.4
+    container_name: cienie-mysql
+    restart: unless-stopped
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_0900_ai_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: rootcienie
+      MYSQL_DATABASE: cienie
+      MYSQL_USER: cienie
+      MYSQL_PASSWORD: cienie
+    ports:
+      # 3307 na hoście, żeby nie wchodzić w drogę lokalnemu MySQL na 3306
+      - "3307:3306"
+    volumes:
+      - dane-mysql:/var/lib/mysql
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-ucienie", "-pcienie"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+
+volumes:
+  dane-mysql:

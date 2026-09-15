@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+build
+.DS_Store
+*.pem
+npm-debug.log*
+.env
+.env.local
+next-env.d.ts
+.impeccable/config.local.json
+/iprivate
+
+# Artefakty przeglądu jakości — zrzuty i logi, nie źródła
+.impeccable/review/
+.impeccable/questions/
+tsconfig.tsbuildinfo

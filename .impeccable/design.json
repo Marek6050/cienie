@@ -1,0 +1,283 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-12T00:00:00Z",
+  "title": "Design System: Cienie Rzeczypospolitej",
+  "extensions": {
+    "colorMeta": {
+      "kalka": {
+        "role": "neutral",
+        "displayName": "Kalka maszynowa",
+        "canonical": "#0c0e14",
+        "tonalRamp": ["#06070b", "#0c0e14", "#12151f", "#171b28", "#232838", "#333a52", "#4a5273", "#7c82a4"]
+      },
+      "przebicie": {
+        "role": "neutral",
+        "displayName": "Przebicie przez kalkę",
+        "canonical": "#e8eaf4",
+        "tonalRamp": ["#2b2f42", "#3f4560", "#545b7d", "#6a7298", "#7c82a4", "#9aa0bd", "#c4c8dc", "#e8eaf4"]
+      },
+      "indygo": {
+        "role": "neutral",
+        "displayName": "Indygo tuszu",
+        "canonical": "#7e88e0",
+        "tonalRamp": ["#1c1f3d", "#282c57", "#3a4180", "#4e57a6", "#646ec6", "#7e88e0", "#a3aaeb", "#c9cdf5"]
+      },
+      "stempel": {
+        "role": "primary",
+        "displayName": "Fiolet anilinowy pieczęci",
+        "canonical": "#a24bc0",
+        "tonalRamp": ["#2a0e35", "#3f1550", "#5d1f73", "#7b2b98", "#a24bc0", "#b566d0", "#c77fe0", "#e0b5ef"]
+      },
+      "nadruk": {
+        "role": "secondary",
+        "displayName": "Czerwień nadruku",
+        "canonical": "#d6303c",
+        "tonalRamp": ["#38070d", "#560a14", "#7a0f1c", "#a81420", "#c41f2d", "#d6303c", "#e8505c", "#f28f97"]
+      },
+      "nadruk-papier": {
+        "role": "secondary",
+        "displayName": "Czerwień nadruku na papierze",
+        "canonical": "#a81420",
+        "tonalRamp": ["#2c0508", "#450810", "#630b17", "#8a0f1c", "#a81420", "#c8202d", "#dd4450", "#ef8c94"]
+      },
+      "przebitka": {
+        "role": "tertiary",
+        "displayName": "Bibułka przebitkowa",
+        "canonical": "#ded8c9",
+        "tonalRamp": ["#1a1712", "#2e2a21", "#4f4739", "#786e5b", "#a29881", "#cfc8b6", "#ded8c9", "#f0ecE2"]
+      }
+    },
+    "typographyMeta": {
+      "paragraf": {
+        "displayName": "Paragraf",
+        "purpose": "Numer klauzuli jako masa kompozycyjna. Wypełniony, nigdy konturowy, zawsze nad nagłówkiem i nigdy większy w odbiorze niż nagłówek, który opisuje."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Nagłówek pierwszego ekranu. Archivo na osi szerokości 125% i wadze 900; dwa wiersze na desktopie."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Nagłówki sekcji i stron panelu. Miara do 26 znaków od 640px w górę."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Tytuły klauzul, teczek tematów i wierszy rejestru."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Proza polska, miara 54-66 znaków. Nigdy w mono."
+      },
+      "label": {
+        "displayName": "Sygnatura",
+        "purpose": "Rejestr dokumentowy: sygnatury, daty, metadane, nagłówki tabel, rozdzielnik. Azeret Mono w wersalikach z rozstrzeleniem 0.16em."
+      }
+    },
+    "shadows": [
+      {
+        "name": "uniesiona-przebitka",
+        "value": "0 26px 60px -30px rgba(0,0,0,0.9), 0 2px 0 0 color-mix(in srgb, #cfc8b6 60%, transparent)",
+        "purpose": "Arkusz źródłowy leżący na kalce: miękki cień rzucony plus cienka krawędź papieru u dołu."
+      },
+      {
+        "name": "tusz-stempla",
+        "value": "0 10px 30px -12px color-mix(in srgb, #a24bc0 80%, transparent)",
+        "purpose": "Wyłącznie hover i focus akcji głównej. Poza tym system jest płaski."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-wybicie",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Jedyna krzywa w systemie. Wykładnicze wyhamowanie, jak nacisk czcionki, który dochodzi i staje."
+      },
+      {
+        "name": "przebicie-czas",
+        "value": "620ms",
+        "purpose": "Odcisk nacisku przechodzi w tusz. Orkiestrowane z opóźnieniem 80-260ms w obrębie sekcji, raz na blok."
+      },
+      {
+        "name": "stempel-czas",
+        "value": "380ms",
+        "purpose": "Stempel prostuje się z -1.5deg do 0 i wypełnia kolorem."
+      },
+      {
+        "name": "wybicie-tuszu",
+        "value": "520ms",
+        "purpose": "Jednorazowy promienisty rozbłysk tuszu przy naciśnięciu akcji głównej."
+      },
+      {
+        "name": "wpis-czas",
+        "value": "220ms",
+        "purpose": "Dolna krawędź pola wpisu przechodzi na fiolet przy ogniskowej."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Stempel (akcja główna)",
+      "kind": "button",
+      "refersTo": "stempel",
+      "description": "Akcja główna jako gumowa pieczęć: leży krzywo, prostuje się pod palcem i wybija tusz.",
+      "html": "<button class=\"ds-stempel\">Zobacz demonstrację<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M3.75 12h16.5M14 5.75 20.25 12 14 18.25\"/></svg></button>",
+      "css": ".ds-stempel { position: relative; display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.95rem 1.6rem; border: 2px solid #a24bc0; border-radius: 2px; background-color: color-mix(in srgb, #a24bc0 14%, transparent); color: #c77fe0; font-family: Archivo, 'Arial Narrow', sans-serif; font-weight: 800; font-stretch: 112%; font-size: 0.9375rem; letter-spacing: 0.06em; text-transform: uppercase; transform: rotate(-1.5deg); cursor: pointer; transition: transform 380ms cubic-bezier(0.16,1,0.3,1), background-color 380ms cubic-bezier(0.16,1,0.3,1), color 380ms cubic-bezier(0.16,1,0.3,1), box-shadow 380ms cubic-bezier(0.16,1,0.3,1); } .ds-stempel:hover, .ds-stempel:focus-visible { transform: rotate(0deg); background-color: #a24bc0; color: #fff; box-shadow: 0 10px 30px -12px color-mix(in srgb, #a24bc0 80%, transparent); outline: none; } .ds-stempel:active { transform: rotate(0deg) scale(0.98); }"
+    },
+    {
+      "name": "Stempel lekki (akcja wtórna)",
+      "kind": "button",
+      "refersTo": "stempel-lekki",
+      "description": "Ten sam kształt w rejestrze neutralnym; przejmuje fiolet dopiero pod palcem.",
+      "html": "<button class=\"ds-stempel-lekki\">Otwórz w panelu</button>",
+      "css": ".ds-stempel-lekki { display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.95rem 1.6rem; border: 2px solid #333a52; border-radius: 2px; background-color: transparent; color: #e8eaf4; font-family: Archivo, 'Arial Narrow', sans-serif; font-weight: 800; font-stretch: 112%; font-size: 0.9375rem; letter-spacing: 0.06em; text-transform: uppercase; transform: rotate(-1.5deg); cursor: pointer; transition: transform 380ms cubic-bezier(0.16,1,0.3,1), border-color 380ms, background-color 380ms, color 380ms; } .ds-stempel-lekki:hover, .ds-stempel-lekki:focus-visible { transform: rotate(0deg); border-color: #a24bc0; background-color: color-mix(in srgb, #a24bc0 18%, transparent); color: #c77fe0; outline: none; }"
+    },
+    {
+      "name": "Wpis (pole formularza)",
+      "kind": "input",
+      "refersTo": "wpis",
+      "description": "Linia wpisu z dokumentu, nie box. Ogniskowa przesuwa krawędź na fiolet.",
+      "html": "<label class=\"ds-wpis-etykieta\" for=\"ds-wpis\">Adres e-mail</label><input class=\"ds-wpis\" id=\"ds-wpis\" type=\"email\" placeholder=\"imie.nazwisko@szkola.pl\">",
+      "css": ".ds-wpis-etykieta { display: block; font-family: 'Azeret Mono', ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.16em; text-transform: uppercase; color: #7c82a4; margin-bottom: 0.5rem; } .ds-wpis { width: 100%; background-color: transparent; border: 0; border-bottom: 1px solid #333a52; border-radius: 0; padding: 0.7rem 0.1rem; font-family: 'Azeret Mono', ui-monospace, monospace; font-size: 0.9375rem; color: #e8eaf4; caret-color: #c77fe0; transition: border-color 220ms cubic-bezier(0.16,1,0.3,1); } .ds-wpis::placeholder { color: #7c82a4; } .ds-wpis:focus { outline: none; border-bottom-color: #c77fe0; } .ds-wpis:disabled { opacity: 0.5; cursor: not-allowed; }"
+    },
+    {
+      "name": "Sygnatura (etykieta rejestru)",
+      "kind": "chip",
+      "refersTo": "label",
+      "description": "Rejestr dokumentowy: sygnatury, daty, metadane. Mono jest tu materiałem świata, nie kostiumem.",
+      "html": "<span class=\"ds-sygnatura\">Luty 1945 · 14 źródeł</span>",
+      "css": ".ds-sygnatura { font-family: 'Azeret Mono', ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.16em; text-transform: uppercase; color: #7c82a4; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Znacznik statusu",
+      "kind": "chip",
+      "refersTo": "stempel",
+      "description": "Stan gotowości scenariusza. Fiolet znaczy, że platforma to udostępnia; brak fioletu znaczy, że jeszcze nie.",
+      "html": "<span class=\"ds-status ds-status--gotowy\"><i></i>Gotowy</span> <span class=\"ds-status\"><i></i>W przygotowaniu</span>",
+      "css": ".ds-status { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid #333a52; padding: 0.25rem 0.625rem; font-family: 'Azeret Mono', ui-monospace, monospace; font-size: 0.5625rem; letter-spacing: 0.16em; text-transform: uppercase; color: #7c82a4; } .ds-status i { width: 6px; height: 6px; background: #7c82a4; } .ds-status--gotowy { border-color: color-mix(in srgb, #a24bc0 60%, transparent); background: color-mix(in srgb, #a24bc0 14%, transparent); color: #c77fe0; } .ds-status--gotowy i { background: #c77fe0; }"
+    },
+    {
+      "name": "Teczka tematu",
+      "kind": "card",
+      "refersTo": "teczka",
+      "description": "Kadr tematu w katalogu: fotografia w duotone, sygnatura w rogu, tytuł, metadane, postęp, stempel akcji.",
+      "html": "<article class=\"ds-teczka\"><div class=\"ds-teczka-kadr\"><span class=\"ds-teczka-sygn\">cisza-nad-raszowa</span></div><div class=\"ds-teczka-tresc\"><h3>Cisza nad Raszową</h3><p>Zima 1945. Idziesz przez Raszową w stronę Kędzierzyna.</p></div></article>",
+      "css": ".ds-teczka { display: flex; flex-direction: column; border: 1px solid #232838; background: #12151f; transition: border-color 200ms; } .ds-teczka:hover { border-color: #333a52; } .ds-teczka-kadr { position: relative; aspect-ratio: 16/9; border-bottom: 1px solid #232838; background: #171b28 repeating-linear-gradient(135deg, #232838 0 1px, transparent 1px 9px); } .ds-teczka-sygn { position: absolute; top: 0.75rem; left: 0.75rem; background: rgba(12,14,20,0.8); padding: 0.25rem 0.5rem; font-family: 'Azeret Mono', ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.16em; text-transform: uppercase; color: #7c82a4; } .ds-teczka-tresc { padding: 1.25rem; } .ds-teczka-tresc h3 { margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-stretch: 110%; font-size: 1.125rem; letter-spacing: -0.01em; color: #e8eaf4; } .ds-teczka-tresc p { margin: 0.75rem 0 0; font-family: Archivo, system-ui, sans-serif; font-size: 0.875rem; line-height: 1.6; color: #9aa0bd; }"
+    },
+    {
+      "name": "Przebitka (materiał źródłowy)",
+      "kind": "custom",
+      "refersTo": "przebitka",
+      "description": "Jedyny jasny obiekt w kadrze. Niesie źródło w trzech grubościach pisma i banderolę klauzuli w czerwieni papierowej.",
+      "html": "<div class=\"ds-przebitka\"><span class=\"ds-przebitka-banderola\">Materiał źródłowy</span><h2>Status źródła</h2><dl><dt class=\"ds-st-1\">Potwierdzone źródłem</dt><dd class=\"ds-dd-1\">Rozkaz Państwowego Komitetu Obrony ZSRR z lutego 1945.</dd><dt class=\"ds-st-2\">Rekonstrukcja</dt><dd>Trasa transportu złożona z relacji świadków.</dd><dt class=\"ds-st-3\">Dramatyzacja</dt><dd>Dialogi i postacie. Zawsze oznaczone w grze.</dd></dl></div>",
+      "css": ".ds-przebitka { position: relative; background: #ded8c9; color: #1a1712; padding: 1.75rem; transform: rotate(-1.2deg); box-shadow: 0 26px 60px -30px rgba(0,0,0,0.9), 0 2px 0 0 color-mix(in srgb, #cfc8b6 60%, transparent); font-family: Archivo, system-ui, sans-serif; } .ds-przebitka-banderola { position: absolute; top: 1rem; right: 1rem; transform: rotate(4deg); border: 2px solid #a81420; padding: 0.25rem 0.625rem; font-family: 'Azeret Mono', ui-monospace, monospace; font-size: 0.5625rem; line-height: 1; letter-spacing: 0.2em; text-transform: uppercase; color: #a81420; } .ds-przebitka h2 { margin: 2rem 0 0; font-weight: 800; font-stretch: 112%; font-size: 0.8125rem; letter-spacing: 0.16em; text-transform: uppercase; } .ds-przebitka dl { margin: 1.25rem 0 0; } .ds-przebitka dt { border-top: 1px solid #cfc8b6; padding-top: 0.875rem; margin-top: 1rem; font-family: 'Azeret Mono', ui-monospace, monospace; font-size: 0.625rem; letter-spacing: 0.16em; text-transform: uppercase; color: #4f4739; } .ds-przebitka .ds-st-1 { font-weight: 700; color: #1a1712; } .ds-przebitka .ds-st-3 { font-style: italic; opacity: 0.75; } .ds-przebitka dd { margin: 0.375rem 0 0; font-size: 0.8125rem; line-height: 1.55; color: #4f4739; } .ds-przebitka .ds-dd-1 { color: #1a1712; } .ds-przebitka ::selection { background: #a24bc0; color: #fff; }"
+    },
+    {
+      "name": "Pasek scen (postęp)",
+      "kind": "custom",
+      "refersTo": "stempel",
+      "description": "Postęp jako wypełniane pola formularza, po jednym na scenę. Nigdy pasek z zaokrąglonym rogiem ani pierścień.",
+      "html": "<div class=\"ds-pasek\" role=\"img\" aria-label=\"Ukończone sceny: 7 z 10\"><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i></i><i></i><i></i></div><p class=\"ds-pasek-liczba\">7 / 10 scen</p>",
+      "css": ".ds-pasek { display: flex; flex-wrap: wrap; gap: 3px; } .ds-pasek i { width: 10px; height: 10px; background: #333a52; } .ds-pasek i.on { background: #c77fe0; } .ds-pasek-liczba { margin: 0.5rem 0 0; font-family: 'Azeret Mono', ui-monospace, monospace; font-size: 0.625rem; letter-spacing: 0.12em; text-transform: uppercase; color: #7c82a4; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Szyna sygnatury (nawigacja klauzul)",
+      "kind": "nav",
+      "refersTo": "label",
+      "description": "Lewy margines dokumentu z pełnym rejestrem klauzul. Bieżąca pozycja fioletem i dłuższą kreską.",
+      "html": "<nav class=\"ds-szyna\" aria-label=\"Paragrafy dokumentu\"><ol><li><a href=\"#a\" aria-current=\"true\"><span class=\"k\"></span>01</a></li><li><a href=\"#b\"><span class=\"k\"></span>02</a></li><li><a href=\"#c\"><span class=\"k\"></span>03</a></li></ol></nav>",
+      "css": ".ds-szyna { width: 68px; border-right: 1px solid #232838; background: #0c0e14; padding: 1.5rem 0; } .ds-szyna ol { list-style: none; margin: 0; padding: 0; } .ds-szyna a { display: flex; align-items: center; justify-content: center; gap: 0.375rem; padding: 0.5rem 0; font-family: 'Azeret Mono', ui-monospace, monospace; font-size: 0.625rem; letter-spacing: 0.06em; color: #7c82a4; text-decoration: none; font-variant-numeric: tabular-nums; transition: color 300ms; } .ds-szyna .k { display: block; height: 1px; width: 8px; background: #333a52; transition: width 300ms, background 300ms; } .ds-szyna a:hover { color: #9aa0bd; } .ds-szyna a:hover .k { width: 12px; background: #7c82a4; } .ds-szyna a[aria-current] { color: #c77fe0; } .ds-szyna a[aria-current] .k { width: 16px; background: #c77fe0; }"
+    },
+    {
+      "name": "Komunikat odmowy",
+      "kind": "custom",
+      "refersTo": "komunikat-odmowa",
+      "description": "Jedna forma komunikatu na cały panel: brak bazy, pusty stan, błąd logowania. Czerwień jako nadruk odmowy, nigdy kolorowa krawędź boczna.",
+      "html": "<p class=\"ds-odmowa\" role=\"alert\"><i></i>Nieprawidłowy e-mail lub hasło.</p>",
+      "css": ".ds-odmowa { display: flex; align-items: flex-start; gap: 0.75rem; margin: 0; border: 1px solid color-mix(in srgb, #d6303c 50%, transparent); background: color-mix(in srgb, #d6303c 10%, transparent); padding: 0.75rem 0.875rem; font-family: Archivo, system-ui, sans-serif; font-size: 0.875rem; line-height: 1.6; color: #e8505c; } .ds-odmowa i { flex: none; width: 6px; height: 6px; margin-top: 0.45em; background: #e8505c; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Rozkaz",
+    "overview": "Deportacje Górnoślązaków w 1945 roku zaczęły się od kartki papieru — rozkazu, który zmieścił się na jednej stronie. Ten system wizualny jest odpowiedzią na tamtą kartkę, złożoną w jej własnej gramatyce: numerowane klauzule, rozdzielnik odbiorców, stempel zamiast przycisku, linie dokumentu zamiast kart.\n\nKluczowa decyzja materiałowa: gruntem nie jest papier, tylko kalka maszynowa. Granatowoczarna, z rysowanym włóknem i kierunkowym połyskiem — litery przychodzą przez nią jak przebicie, w indygo. Papier występuje dokładnie raz, jako cienka przebitka, i tylko tam, gdzie leży materiał źródłowy albo długi tekst do czytania. To odwrócenie trzyma świat z dala od sepiowego pastiszu historycznego i od kremowego tła, w które ta kategoria zwykle wpada.\n\nMateriał jest rysowany, nigdy udawany: faktura kalki to repeating-linear-gradient z radialnym połyskiem, a nie tekstura w pliku. Fotografie archiwalne są prawdziwymi rastrami pod warstwą duotone; żadnego fałszowanego reliefu, tłoczenia ani podartego papieru.",
+    "keyCharacteristics": [
+      "Ciemny grunt z rysowaną fakturą; treść nigdy nie dostaje własnego tła, tylko linie",
+      "Kolor racjonowany rolą — trzy barwy, trzy znaczenia, zero dekoracji",
+      "Jeden jasny materiał na całej stronie, zarezerwowany dla źródeł",
+      "Typografia jako masa: numery klauzul trzymają kompozycję",
+      "Zero zaokrągleń poza 2 px na stemplu",
+      "Temat niesie ciężar — nic w tym systemie nie może go zbagatelizować"
+    ],
+    "rules": [
+      {
+        "name": "Reguła Trzech Znaczeń",
+        "body": "Fiolet znaczy „platforma działa\". Czerwień znaczy „nadruk\" — cytat z 1945 albo odmowa systemu. Przebitka znaczy „materiał źródłowy\". Żaden z tych trzech kolorów nie pojawia się w innej roli, nigdy jako dekoracja. Test: wskaż dowolny fioletowy piksel i powiedz, co zrobiła platforma.",
+        "section": "colors"
+      },
+      {
+        "name": "Reguła Jednego Papieru",
+        "body": "Na ekranie może być tylko jeden jasny obiekt naraz. Jeśli druga przebitka walczy o uwagę z pierwszą, żadna nie jest już materiałem źródłowym — obie są tłem.",
+        "section": "colors"
+      },
+      {
+        "name": "Reguła Przezroczystego Wiersza",
+        "body": "Wiersze list i tabel nie dostają tła. Oddziela je linia włosowa, żeby faktura kalki biegła nieprzerwanie przez całą stronę. Pełne tło zasłania grunt i wiersz zamienia się w szarą płytę.",
+        "section": "colors"
+      },
+      {
+        "name": "Reguła Masy",
+        "body": "Numer klauzuli jest masą, nie ozdobą — wypełniony kolorem, nigdy -webkit-text-stroke. Ale nie przejmuje kompozycji: nagłówek, który opisuje, zostaje największym elementem w kadrze.",
+        "section": "typography"
+      },
+      {
+        "name": "Reguła Rejestru",
+        "body": "Mono jest materiałem tego świata (maszynopis przez kalkę), więc wolno go używać na sygnaturach, datach, etykietach i liczbach. Nigdy na prozie. Wszystkie liczby w danych są tabelaryczne.",
+        "section": "typography"
+      },
+      {
+        "name": "Reguła Jednego Marginesu",
+        "body": "Numer, nagłówek, lead, akcje i treść wyrównują się do tej samej lewej krawędzi. Żadnych wcięć pod tekst nagłówka.",
+        "section": "typography"
+      },
+      {
+        "name": "Reguła Narysowanej Siatki",
+        "body": "Margines dokumentu jest rysowany, nie domyślny. Szyna niesie pełny rejestr klauzul 01–06 jako nawigację z oznaczeniem bieżącej pozycji; nic na stronie nie pływa bez odniesienia.",
+        "section": "layout"
+      },
+      {
+        "name": "Reguła Płaskiego Spoczynku",
+        "body": "Powierzchnie w spoczynku są płaskie. Cień pojawia się wyłącznie jako odpowiedź na stan albo dlatego, że obiekt naprawdę leży na innym.",
+        "section": "elevation"
+      },
+      {
+        "name": "Reguła Ostrego Narożnika",
+        "body": "Jeśli coś ma zaokrąglony róg, jest stemplem. Jeśli nie jest stemplem, ma kąt prosty.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do trzymać się Reguły Trzech Znaczeń: fiolet = platforma działa, czerwień = nadruk, przebitka = źródło.",
+      "Do oddzielać wiersze linią włosową 1px var(--color-linia) zamiast dawać im tło — faktura kalki ma biec przez całą stronę.",
+      "Do stawiać numer klauzuli nad nagłówkiem i wyrównywać całą treść do jednego lewego marginesu.",
+      "Do rysować materiał w CSS (włókno kalki, siatka dokumentu) i zostawiać fotografie prawdziwymi rastrami pod warstwą duotone.",
+      "Do tematyzować powierzchnie przeglądarki — zaznaczenie, karetkę, pasek przewijania i obrys ogniskowej — z palety, a nie zostawiać domyślnych.",
+      "Do dawać każdej fotografii wpisane pochodzenie przed wysyłką (impeccable embed-prompt --scan public/archiwum).",
+      "Do liczyć kontrast osobno na kalce i na przebitce; nadruk-papier istnieje właśnie dlatego."
+    ],
+    "donts": [
+      "Don't używać czerwieni jako akcentu interfejsu. Czerwień cytuje 1945 rok albo odmawia — nic poza tym.",
+      "Don't wprowadzać drugiego jasnego obiektu w kadrze; przebitka traci wtedy znaczenie.",
+      "Don't zaokrąglać niczego poza stemplem (2 px).",
+      "Don't rysować numeru klauzuli konturem ani pozwalać mu przerosnąć nagłówek, który opisuje.",
+      "Don't budować struktury strony z jednakowych kafelków ikona + nagłówek + tekst; ten świat ma rejestry, klauzule i rozdzielniki.",
+      "Don't wstawiać okna modalnego tam, gdzie wystarczy rozwijana klauzula (<details>).",
+      "Don't pokazywać postępu pierścieniem ani paskiem z zaokrąglonym rogiem — postęp to wypełniane pola.",
+      "Don't stawiać emoji ani glifu Unicode w roli ikony; ikony są rysowane na siatce 24 × 24 kreską 1,5.",
+      "Don't zsuwać tematu w stronę rozrywki: żadnych rankingów, punktów za szybkość ani odznak."
+    ]
+  }
+}

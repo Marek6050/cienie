@@ -1,0 +1,481 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   CIENIE RZECZYPOSPOLITEJ — świat wizualny "ROZKAZ"
+   Grunt to kalka maszynowa, nie papier. Litery przychodzą przez nią jak
+   przebicie. Kolor jest racjonowany rolą:
+     fiolet  — platforma działa (akcja, stan aktywny, zaznaczenie)
+     czerwień — wyłącznie nadruk historyczny (klauzula, data, cytat z 1945)
+     przebitka — materiał źródłowy i długi tekst do czytania
+   ========================================================================== */
+
+@theme {
+  /* Kalka — grunt */
+  --color-kalka: #0c0e14;
+  --color-kalka-2: #12151f;
+  --color-kalka-3: #171b28;
+  --color-linia: #232838;
+  --color-linia-mocna: #333a52;
+
+  /* Przebicie — tekst, który przeszedł przez kalkę */
+  --color-przebicie: #e8eaf4;
+  --color-przebicie-2: #9aa0bd;
+  --color-przebicie-3: #7c82a4;
+  --color-indygo: #7e88e0;
+  --color-indygo-gleb: #3a4180;
+
+  /* Stempel — platforma działa */
+  --color-stempel: #a24bc0;
+  --color-stempel-jasny: #c77fe0;
+  --color-stempel-gleb: #5d1f73;
+
+  /* Nadruk — wyłącznie materiał historyczny */
+  --color-nadruk: #d6303c;
+  --color-nadruk-jasny: #e8505c;
+  /* nadruk na przebitce — ciemniejszy, bo papier jest jasny */
+  --color-nadruk-papier: #a81420;
+
+  /* Przebitka — bibułka ze źródłem */
+  --color-przebitka: #ded8c9;
+  --color-przebitka-2: #cfc8b6;
+  --color-przebitka-tusz: #1a1712;
+  --color-przebitka-tusz-2: #4f4739;
+
+  --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-archivo), system-ui, sans-serif;
+  --font-mono: var(--font-azeret), ui-monospace, monospace;
+
+  --ease-wybicie: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Podstawa
+   -------------------------------------------------------------------------- */
+
+:root {
+  color-scheme: dark;
+  --szyna: 0px;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --szyna: 68px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--color-kalka);
+  color: var(--color-przebicie);
+  font-family: var(--font-sans);
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Powierzchnie przeglądarki — one też należą do systemu */
+::selection {
+  background-color: var(--color-stempel-gleb);
+  color: var(--color-przebicie);
+}
+
+.na-przebitce ::selection {
+  background-color: var(--color-stempel);
+  color: #fff;
+}
+
+:where(input, textarea) {
+  caret-color: var(--color-stempel-jasny);
+}
+
+* {
+  scrollbar-color: var(--color-linia-mocna) var(--color-kalka);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-kalka);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-linia-mocna);
+  border: 3px solid var(--color-kalka);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-indygo-gleb);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-stempel-jasny);
+  outline-offset: 3px;
+}
+
+a {
+  text-underline-offset: 0.28em;
+  text-decoration-thickness: from-font;
+}
+
+/* Cyfry w danych są tabelaryczne — to dokument, nie proza */
+.liczby,
+table,
+time,
+.mono {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* --------------------------------------------------------------------------
+   Materiał: kalka
+   Włókno + kierunkowy połysk. Rysowane, nie obrazkiem.
+   -------------------------------------------------------------------------- */
+
+.kalka {
+  position: relative;
+  isolation: isolate;
+}
+
+.kalka::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      92deg,
+      rgba(126, 136, 224, 0.045) 0px,
+      rgba(126, 136, 224, 0) 1px,
+      rgba(126, 136, 224, 0) 3px
+    ),
+    radial-gradient(
+      120% 80% at 78% 0%,
+      rgba(126, 136, 224, 0.12) 0%,
+      rgba(12, 14, 20, 0) 62%
+    );
+}
+
+/* --------------------------------------------------------------------------
+   Siatka dokumentu — narysowana, nie domyślna
+   -------------------------------------------------------------------------- */
+
+.margines {
+  border-left: 1px solid var(--color-linia);
+}
+
+.linia-dokumentu {
+  border-top: 1px solid var(--color-linia);
+}
+
+/* --------------------------------------------------------------------------
+   Przebicie przez kalkę — sygnaturowa interakcja
+   Najpierw słaby odcisk nacisku, po chwili dochodzi tusz.
+   Bez JS renderuje się od razu stan końcowy.
+   -------------------------------------------------------------------------- */
+
+html[data-js="1"] [data-kalka="odcisk"] {
+  opacity: 0.42;
+  filter: blur(5px);
+  transform: translateY(6px);
+  letter-spacing: 0.012em;
+}
+
+[data-kalka="tusz"] {
+  opacity: 1;
+  filter: blur(0);
+  transform: none;
+  letter-spacing: inherit;
+  transition:
+    opacity 620ms var(--ease-wybicie),
+    filter 620ms var(--ease-wybicie),
+    transform 620ms var(--ease-wybicie),
+    letter-spacing 620ms var(--ease-wybicie);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-js="1"] [data-kalka="odcisk"] {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    letter-spacing: inherit;
+  }
+
+  [data-kalka="tusz"] {
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Stempel — akcja główna. Nie przycisk.
+   -------------------------------------------------------------------------- */
+
+.stempel {
+  --stempel-obrot: -1.5deg;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 1.6rem;
+  border: 2px solid var(--color-stempel);
+  border-radius: 2px;
+  background-color: color-mix(in srgb, var(--color-stempel) 14%, transparent);
+  color: var(--color-stempel-jasny);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 112%;
+  font-size: 0.9375rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transform: rotate(var(--stempel-obrot));
+  overflow: hidden;
+  transition:
+    transform 380ms var(--ease-wybicie),
+    background-color 380ms var(--ease-wybicie),
+    color 380ms var(--ease-wybicie),
+    box-shadow 380ms var(--ease-wybicie);
+}
+
+.stempel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    color-mix(in srgb, var(--color-stempel-jasny) 70%, transparent) 0%,
+    transparent 62%
+  );
+  opacity: 0;
+  transform: scale(0.2);
+  pointer-events: none;
+}
+
+.stempel:hover,
+.stempel:focus-visible {
+  transform: rotate(0deg);
+  background-color: var(--color-stempel);
+  color: #fff;
+  box-shadow: 0 10px 30px -12px color-mix(in srgb, var(--color-stempel) 80%, transparent);
+}
+
+.stempel:active {
+  transform: rotate(0deg) scale(0.98);
+}
+
+.stempel:active::after {
+  animation: wybicie-tuszu 520ms var(--ease-wybicie);
+}
+
+@keyframes wybicie-tuszu {
+  0% {
+    opacity: 0.85;
+    transform: scale(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stempel,
+  .stempel:hover,
+  .stempel:focus-visible,
+  .stempel:active {
+    transform: none;
+    transition: background-color 120ms linear, color 120ms linear;
+  }
+
+  .stempel:active::after {
+    animation: none;
+  }
+}
+
+/* Stempel wtórny — sam kontur */
+.stempel-lekki {
+  border-color: var(--color-linia-mocna);
+  background-color: transparent;
+  color: var(--color-przebicie);
+}
+
+.stempel-lekki:hover,
+.stempel-lekki:focus-visible {
+  border-color: var(--color-stempel);
+  background-color: color-mix(in srgb, var(--color-stempel) 18%, transparent);
+  color: var(--color-stempel-jasny);
+  box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   Przebitka — jedyny jasny materiał
+   -------------------------------------------------------------------------- */
+
+.przebitka {
+  background-color: var(--color-przebitka);
+  color: var(--color-przebitka-tusz);
+  box-shadow:
+    0 26px 60px -30px rgba(0, 0, 0, 0.9),
+    0 2px 0 0 color-mix(in srgb, var(--color-przebitka-2) 60%, transparent);
+}
+
+.przebitka::selection,
+.przebitka *::selection {
+  background-color: var(--color-stempel);
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Fotografia archiwalna — duotone w kolorze kalki.
+   Obrazy zostają nietknięte na dysku; świat nakłada się w przeglądarce.
+   -------------------------------------------------------------------------- */
+
+.duotone {
+  filter: grayscale(1) contrast(1.06) brightness(0.92);
+}
+
+.duotone-warstwa {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: color;
+  background-color: #2a3168;
+  opacity: 0.55;
+}
+
+.duotone-cien {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(12, 14, 20, 0.95) 0%,
+    rgba(12, 14, 20, 0.25) 45%,
+    rgba(12, 14, 20, 0.55) 100%
+  );
+}
+
+/* --------------------------------------------------------------------------
+   Rejestr dokumentowy
+   -------------------------------------------------------------------------- */
+
+.sygnatura {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-przebicie-3);
+}
+
+.paragraf {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-stretch: 125%;
+  line-height: 0.78;
+  letter-spacing: -0.045em;
+  color: var(--color-indygo-gleb);
+  user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   Pola formularza — linie wpisu, nie boxy
+   -------------------------------------------------------------------------- */
+
+.wpis {
+  width: 100%;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-linia-mocna);
+  border-radius: 0;
+  padding: 0.7rem 0.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  color: var(--color-przebicie);
+  transition: border-color 220ms var(--ease-wybicie);
+}
+
+.wpis::placeholder {
+  color: var(--color-przebicie-3);
+}
+
+.wpis:focus {
+  outline: none;
+  border-bottom-color: var(--color-stempel-jasny);
+}
+
+.wpis:focus-visible {
+  outline: none;
+}
+
+.wpis:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   Rejestr, który nie mieści się na telefonie
+   -------------------------------------------------------------------------- */
+
+.rejestr {
+  position: relative;
+}
+
+.rejestr > .przewijana {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+/* Wygaszenie prawej krawędzi stoi nad kontenerem, więc nie odjeżdża razem
+   z treścią i naprawdę widać, że rejestr jest ucięty. */
+.rejestr::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 3rem;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    rgba(12, 14, 20, 0) 0%,
+    rgba(12, 14, 20, 0.92) 72%,
+    var(--color-kalka) 100%
+  );
+}
+
+@media (min-width: 640px) {
+  .rejestr::after {
+    display: none;
+  }
+}
+
+.podpowiedz-przewijania {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-przebicie-3);
+}
+
+@media (min-width: 640px) {
+  .podpowiedz-przewijania {
+    display: none;
+  }
+}
