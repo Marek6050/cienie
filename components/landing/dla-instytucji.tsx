@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Sekcja } from "./sekcja";
 import { Przebicie } from "@/components/przebicie";
 import {
@@ -5,6 +6,7 @@ import {
   IkonaPytanie,
   IkonaWykres,
   IkonaSluchawki,
+  IkonaStrzalka,
 } from "@/components/ikony";
 
 const SZKOLY = [
@@ -105,6 +107,14 @@ export function DlaSzkol() {
               <span>Gotowe narzędzie do prowadzenia rozmowy o źródłach, pamięci, polityce i znaczeniu historii.</span>
             </li>
           </ul>
+
+          <Link
+            href="/materialy-dla-nauczycieli"
+            className="mt-8 inline-flex items-center gap-3 font-mono text-[0.6875rem] tracking-[0.14em] text-przebicie uppercase underline decoration-linia-mocna transition-colors duration-200 hover:text-stempel-jasny hover:decoration-stempel"
+          >
+            Materiały pomocnicze dla nauczycieli
+            <IkonaStrzalka className="h-3.5 w-3.5" />
+          </Link>
         </Przebicie>
       </div>
     </Sekcja>
