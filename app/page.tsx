@@ -8,6 +8,7 @@ import { Realizacja } from "@/components/landing/realizacja";
 import { Pomnik } from "@/components/landing/pomnik";
 import { Metodologia } from "@/components/landing/metodologia";
 import { Kreator } from "@/components/landing/kreator";
+import { DlaSzkol, DlaMuzeow } from "@/components/landing/dla-instytucji";
 import { KimJestesmy } from "@/components/landing/kim-jestesmy";
 import { Kontakt, Stopka } from "@/components/landing/kontakt";
 
@@ -33,6 +34,8 @@ export default function Strona() {
         <Pomnik />
         <Metodologia />
         <Kreator />
+        <DlaSzkol />
+        <DlaMuzeow />
         <KimJestesmy />
         <Kontakt />
       </main>

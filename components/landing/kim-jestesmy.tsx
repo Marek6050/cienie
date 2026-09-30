@@ -28,7 +28,7 @@ export function KimJestesmy() {
   return (
     <Sekcja
       id="o-nas"
-      nr="08"
+      nr="10"
       tytul="Łączymy historię, edukację i technologię."
       lead={
         <>
