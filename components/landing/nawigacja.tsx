@@ -1,11 +1,12 @@
 import Link from "next/link";
 
 const POZYCJE = [
-  { href: "#co-robimy", etykieta: "Co robimy" },
-  { href: "#dlaczego", etykieta: "Dlaczego my" },
-  { href: "#realizacja", etykieta: "Realizacja" },
-  { href: "#kreator", etykieta: "Kreator" },
-  { href: "#kontakt", etykieta: "Kontakt" },
+  { href: "#jak-to-dziala", etykieta: "Jak to działa" },
+  { href: "#w-srodku", etykieta: "W środku" },
+  { href: "#realizacja", etykieta: "Historia" },
+  { href: "#metodologia", etykieta: "Metodologia" },
+  { href: "#kreator", etykieta: "Współpraca" },
+  { href: "#o-nas", etykieta: "O nas" },
 ];
 
 export function Nawigacja() {

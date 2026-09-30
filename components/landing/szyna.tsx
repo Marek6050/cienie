@@ -5,11 +5,14 @@ import { useEffect, useState } from "react";
 
 const PARAGRAFY = [
   { id: "platforma", nr: "01" },
-  { id: "co-robimy", nr: "02" },
-  { id: "dlaczego", nr: "03" },
-  { id: "realizacja", nr: "04" },
-  { id: "kreator", nr: "05" },
-  { id: "kontakt", nr: "06" },
+  { id: "doswiadczenie", nr: "02" },
+  { id: "jak-to-dziala", nr: "03" },
+  { id: "w-srodku", nr: "04" },
+  { id: "realizacja", nr: "05" },
+  { id: "metodologia", nr: "06" },
+  { id: "kreator", nr: "07" },
+  { id: "o-nas", nr: "08" },
+  { id: "kontakt", nr: "09" },
 ];
 
 /**

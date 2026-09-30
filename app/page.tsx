@@ -1,11 +1,14 @@
 import { Szyna } from "@/components/landing/szyna";
 import { Nawigacja } from "@/components/landing/nawigacja";
 import { Naglowek } from "@/components/landing/naglowek";
-import { CoRobimy } from "@/components/landing/co-robimy";
-import { Dlaczego } from "@/components/landing/dlaczego";
-import { Pomnik } from "@/components/landing/pomnik";
+import { Doswiadczenie } from "@/components/landing/doswiadczenie";
+import { JakToDziala } from "@/components/landing/jak-to-dziala";
+import { WSrodku } from "@/components/landing/w-srodku";
 import { Realizacja } from "@/components/landing/realizacja";
+import { Pomnik } from "@/components/landing/pomnik";
+import { Metodologia } from "@/components/landing/metodologia";
 import { Kreator } from "@/components/landing/kreator";
+import { KimJestesmy } from "@/components/landing/kim-jestesmy";
 import { Kontakt, Stopka } from "@/components/landing/kontakt";
 
 export default function Strona() {
@@ -23,11 +26,14 @@ export default function Strona() {
 
       <main>
         <Naglowek />
-        <CoRobimy />
-        <Dlaczego />
-        <Pomnik />
+        <Doswiadczenie />
+        <JakToDziala />
+        <WSrodku />
         <Realizacja />
+        <Pomnik />
+        <Metodologia />
         <Kreator />
+        <KimJestesmy />
         <Kontakt />
       </main>
 

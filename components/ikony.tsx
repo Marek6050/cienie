@@ -128,3 +128,51 @@ export const IkonaPlus = (p: Props) => (
     <path d="M12 4.75v14.5M4.75 12h14.5" />
   </Ikona>
 );
+
+export const IkonaKsiazka = (p: Props) => (
+  <Ikona {...p}>
+    <path d="M3.5 4.5h5.2c1.3 0 2.3.9 2.3 2v12c0-1.1-1-2-2.3-2H3.5v-12ZM20.5 4.5h-5.2c-1.3 0-2.3.9-2.3 2v12c0-1.1 1-2 2.3-2h5.2v-12Z" />
+  </Ikona>
+);
+
+export const IkonaSluchawki = (p: Props) => (
+  <Ikona {...p}>
+    <path d="M4.5 14v-2a7.5 7.5 0 0 1 15 0v2" />
+    <path d="M4.5 13.5h3v6h-3v-6ZM16.5 13.5h3v6h-3v-6Z" />
+  </Ikona>
+);
+
+export const IkonaNotatka = (p: Props) => (
+  <Ikona {...p}>
+    <path d="M5.5 3.5h13v17h-13v-17Z" />
+    <path d="M8.5 8h7M8.5 12h7M8.5 16h4" />
+  </Ikona>
+);
+
+export const IkonaPytanie = (p: Props) => (
+  <Ikona {...p}>
+    <path d="M3.5 4.5h17v12h-10l-4.5 4v-4h-2.5v-12Z" />
+    <path d="M9.6 8.6a2.4 2.4 0 1 1 2.4 2.4v1.4" />
+  </Ikona>
+);
+
+export const IkonaLupa = (p: Props) => (
+  <Ikona {...p}>
+    <path d="M10.5 3.5a7 7 0 1 1 0 14 7 7 0 0 1 0-14Z" />
+    <path d="m15.6 15.6 4.9 4.9" />
+  </Ikona>
+);
+
+export const IkonaWykres = (p: Props) => (
+  <Ikona {...p}>
+    <path d="M3.5 20.5v-17M3.5 20.5h17" />
+    <path d="M7.5 17.5v-5M12 17.5v-9M16.5 17.5v-6.5" />
+  </Ikona>
+);
+
+export const IkonaWarstwy = (p: Props) => (
+  <Ikona {...p}>
+    <path d="m12 3.5 8.5 4.5-8.5 4.5L3.5 8 12 3.5Z" />
+    <path d="m3.5 12.5 8.5 4.5 8.5-4.5" />
+  </Ikona>
+);

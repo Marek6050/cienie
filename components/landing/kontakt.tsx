@@ -2,19 +2,22 @@ import Link from "next/link";
 import { Sekcja } from "./sekcja";
 import { Przebicie } from "@/components/przebicie";
 import { IkonaKoperta, IkonaStrzalka } from "@/components/ikony";
-import { KONTAKT, ZESPOL } from "@/lib/kontakt";
+import { KONTAKT } from "@/lib/kontakt";
 
 export function Kontakt() {
   return (
     <Sekcja
       id="kontakt"
-      nr="06"
-      tytul="Napisz — odpowiada człowiek, nie formularz."
+      nr="09"
+      tytul="Masz pytanie? Porozmawiajmy."
       lead={
         <>
-          Chcesz przeprowadzić lekcję, zamówić opowieść o innym wydarzeniu albo
-          zgłosić błąd merytoryczny? Każde z tych zgłoszeń traktujemy tak samo
-          poważnie.
+          Chcesz wykorzystać materiał na lekcji, stworzyć interaktywną historię
+          o innym wydarzeniu albo zgłosić uwagę merytoryczną? Napisz do nas —
+          każde zgłoszenie czytamy i traktujemy indywidualnie.{" "}
+          <span className="text-przebicie">
+            Na Twoją wiadomość odpowiada zespół, nie automat.
+          </span>
         </>
       }
     >
@@ -65,15 +68,6 @@ export function Kontakt() {
               </dd>
             </div>
 
-            <div className="border-b border-linia py-5">
-              <dt className="sygnatura">Realizacja</dt>
-              <dd className="mt-2 max-w-[52ch] text-[0.9375rem] leading-relaxed text-przebicie-2">
-                {ZESPOL.szkola}
-                <span className="mt-1.5 block text-przebicie-3">
-                  {ZESPOL.autorzy.join(" · ")}
-                </span>
-              </dd>
-            </div>
           </dl>
 
           <div className="mt-9">
