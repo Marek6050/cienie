@@ -2,35 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-
-const SCENA = {
-  sygnatura: "CNR / SC-01",
-  tytul: "Scena 1 — Spotkanie na Raszowej",
-  tlo: "/archiwum/zima.webp",
-  postac: {
-    imie: "Anna Willner",
-    obraz: "/archiwum/postac-klara.webp",
-  },
-  didaskalia:
-    "Klęczy w śniegu, trzymając dziecko. Obok stoi chłopiec z porcelanowym aniołkiem. W tle odgłosy walki.",
-  kwestia:
-    "— Niech pan nie idzie dalej tą drogą. Oni zabierają wszystkich, kto sam stoi na nogach.",
-  wybory: [
-    { klucz: "A", tekst: "Zostać i pomóc jej wstać", waga: "+2 empatia" },
-    { klucz: "B", tekst: "Iść dalej w stronę mostu", waga: "−1 empatia" },
-  ],
-};
-
-const DEFINICJA = [
-  { pole: "id", wartosc: "sc-01-raszowa" },
-  { pole: "tło", wartosc: "zima.webp" },
-  { pole: "postać", wartosc: "anna_willner" },
-  { pole: "audio", wartosc: "wiatr.wav, dziecko.wav" },
-  { pole: "kwestia", wartosc: "pl.sceny.scene1.kwestia" },
-  { pole: "wybór A → ", wartosc: "sc-02 · moralność +2" },
-  { pole: "wybór B → ", wartosc: "sc-03 · moralność −1" },
-  { pole: "status", wartosc: "dramatyzacja na podstawie relacji" },
-];
+import { SCENA_DEMO as SCENA, DEFINICJA_DEMO as DEFINICJA } from "@/lib/scena-demo";
 
 /**
  * Ta sama scena w dwóch trybach: tak, jak widzi ją uczeń, i tak, jak

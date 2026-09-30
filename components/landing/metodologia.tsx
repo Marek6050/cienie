@@ -6,18 +6,24 @@ const STOPNIE = [
     klucz: "fakt",
     etykieta: "Fakt",
     tresc: "potwierdzony źródłem",
+    przyklad:
+      "Rozkaz Państwowego Komitetu Obrony ZSRR z lutego 1945 o internowaniu osób w wieku 17–50 lat zdolnych do pracy.",
     klasa: "font-bold text-przebicie",
   },
   {
     klucz: "rekonstrukcja",
     etykieta: "Rekonstrukcja",
     tresc: "odtworzona na podstawie dostępnych materiałów",
+    przyklad:
+      "Trasa transportu i rozkład obozu zbiorczego, złożone z relacji świadków i opracowań.",
     klasa: "font-medium text-przebicie-2",
   },
   {
     klucz: "dramatyzacja",
     etykieta: "Dramatyzacja",
     tresc: "element narracyjny, który nie jest przedstawiany jako fakt",
+    przyklad:
+      "Dialogi i postacie. Zawsze oznaczone w grze, nigdy podane jako cytat z dokumentu.",
     klasa: "font-normal text-przebicie-3 italic",
   },
 ];
@@ -108,6 +114,9 @@ export function Metodologia() {
                         </dt>
                         <dd className="text-[0.9375rem] leading-relaxed text-przebicie-2">
                           {s.tresc}
+                          <span className="mt-1.5 block max-w-[52ch] text-[0.875rem] leading-relaxed text-przebicie-3">
+                            Np. {s.przyklad}
+                          </span>
                         </dd>
                       </div>
                     ))}
