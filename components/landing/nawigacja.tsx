@@ -6,6 +6,8 @@ const POZYCJE = [
   { href: "#realizacja", etykieta: "Historia" },
   { href: "#metodologia", etykieta: "Metodologia" },
   { href: "#kreator", etykieta: "Współpraca" },
+  { href: "#dla-szkol", etykieta: "Dla szkół" },
+  { href: "#dla-muzeow", etykieta: "Dla muzeów" },
   { href: "#o-nas", etykieta: "O nas" },
 ];
 
