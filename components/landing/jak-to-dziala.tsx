@@ -1,48 +1,18 @@
-import { Sekcja } from "./sekcja";
-import { Przebicie } from "@/components/przebicie";
+import { Karta, Siatka } from "@/components/witryna/karta";
+import { Sekcja } from "@/components/witryna/sekcja";
+import { NaglowekSekcji } from "@/components/witryna/naglowek-sekcji";
+import { Grafika } from "@/components/witryna/grafika";
 import {
-  IkonaTeczka,
-  IkonaTelefon,
-  IkonaZrodlo,
-  IkonaRozgalezienie,
-  IkonaOsoby,
+  IkonaTeczka, IkonaTelefon, IkonaZrodlo, IkonaRozgalezienie, IkonaOsoby,
 } from "@/components/ikony";
 
 const KROKI = [
-  {
-    nr: "01",
-    Ikona: IkonaTeczka,
-    tytul: "Wybierz historię",
-    tresc: "Nauczyciel uruchamia wybrany materiał, np. „Ciszę nad Raszową”.",
-  },
-  {
-    nr: "02",
-    Ikona: IkonaTelefon,
-    tytul: "Udostępnij uczniom",
-    tresc:
-      "Uczniowie otwierają materiał na telefonie lub komputerze. Bez instalacji.",
-  },
-  {
-    nr: "03",
-    Ikona: IkonaZrodlo,
-    tytul: "Poznaj wydarzenia",
-    tresc:
-      "Uczniowie pracują ze źródłami, fotografiami, mapami i relacjami świadków.",
-  },
-  {
-    nr: "04",
-    Ikona: IkonaRozgalezienie,
-    tytul: "Podejmij decyzję",
-    tresc:
-      "W kluczowych momentach uczniowie wybierają, jak postąpić — i poznają konsekwencje swoich wyborów.",
-  },
-  {
-    nr: "05",
-    Ikona: IkonaOsoby,
-    tytul: "Porozmawiaj o wyborach",
-    tresc: "Klasa porównuje decyzje i wspólnie analizuje wydarzenia.",
-  },
-];
+  { nr: "01", Ikona: IkonaTeczka, tytul: "Wybierz historię", tresc: "Nauczyciel uruchamia wybrany materiał, np. „Ciszę nad Raszową”.", ton: "biala" },
+  { nr: "02", Ikona: IkonaTelefon, tytul: "Udostępnij uczniom", tresc: "Uczniowie otwierają materiał na telefonie lub komputerze. Bez instalacji.", ton: "biala" },
+  { nr: "03", Ikona: IkonaZrodlo, tytul: "Poznaj wydarzenia", tresc: "Uczniowie pracują ze źródłami, fotografiami, mapami i relacjami świadków.", ton: "biala" },
+  { nr: "04", Ikona: IkonaRozgalezienie, tytul: "Podejmij decyzję", tresc: "W kluczowych momentach uczniowie wybierają, jak postąpić — i poznają konsekwencje.", ton: "akcent" },
+  { nr: "05", Ikona: IkonaOsoby, tytul: "Porozmawiaj o wyborach", tresc: "Klasa porównuje decyzje i wspólnie analizuje wydarzenia.", ton: "biala" },
+] as const;
 
 const PO_LEKCJI = [
   "rozumie kontekst wydarzenia",
@@ -55,87 +25,60 @@ const PO_LEKCJI = [
 
 export function JakToDziala() {
   return (
-    <Sekcja
-      id="jak-to-dziala"
-      nr="03"
-      tytul="Jedna lekcja. Pięć prostych kroków."
-      lead={
-        <>
-          Bez instalacji, bez dodatkowego przygotowania, bez skomplikowanej
-          konfiguracji. Wybierz historię, udostępnij ją uczniom i przeprowadź
-          angażującą lekcję w kilka minut.
-        </>
-      }
-    >
-      {/* Ścieżka lekcji. Numer niesie tu kolejność, więc jest informacją,
-          nie ozdobą. Poziomo od lg, pionowo niżej — bez przewijania w bok. */}
-      <ol className="grid gap-0 lg:grid-cols-5">
-        {KROKI.map((k, i) => (
-          <Przebicie
-            as="li"
-            key={k.nr}
-            opoznienie={i * 90}
-            className="relative border-t border-linia pt-6 pb-8 lg:border-t-0 lg:pt-0 lg:pb-0 lg:pr-7 lg:last:pr-0"
-          >
-            {/* Wiersz znacznika: numer na linii ciągnącej się przez sekcję */}
-            <div className="flex items-center gap-3 lg:gap-0">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center border border-stempel bg-kalka font-mono text-[0.75rem] font-bold text-stempel-jasny">
-                {k.nr}
-              </span>
-              <span
-                aria-hidden="true"
-                className="h-px flex-1 bg-linia-mocna lg:ml-3"
-              />
-              {/* Grot między krokami — tylko poziomo i nie po ostatnim */}
-              {i < KROKI.length - 1 ? (
-                <svg
-                  viewBox="0 0 8 12"
-                  aria-hidden="true"
-                  className="hidden h-3 w-2 shrink-0 text-stempel-jasny lg:block"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                  strokeLinecap="square"
-                >
-                  <path d="m1.5 1 5 5-5 5" />
-                </svg>
-              ) : null}
-            </div>
+    <Sekcja id="jak-to-dziala">
+      <NaglowekSekcji
+        etykieta="Jak to działa"
+        tytul="Jedna lekcja. Pięć prostych kroków."
+        lead="Bez instalacji, bez dodatkowego przygotowania, bez skomplikowanej konfiguracji. Wybierz historię, udostępnij ją uczniom i przeprowadź angażującą lekcję."
+      />
 
-            <k.Ikona className="mt-6 h-6 w-6 text-przebicie-3" />
+      <Siatka>
+        {KROKI.map((k, i) => {
+          const akcent = k.ton === "akcent";
+          return (
+            <Karta key={k.nr} span="lg:col-span-4" ton={k.ton} opoznienie={i * 70} className="flex flex-col justify-between gap-10">
+              <div className="flex items-center justify-between">
+                <k.Ikona className={`h-7 w-7 ${akcent ? "text-white" : "text-akcent"}`} />
+                <span className={`font-mono text-[0.8125rem] font-medium ${akcent ? "text-white/70" : "text-tusz-3"}`}>
+                  {k.nr}
+                </span>
+              </div>
+              <div>
+                <h3 className="h-karty text-[1.25rem]">{k.tytul}</h3>
+                <p className={`mt-2 text-[0.9375rem] leading-relaxed ${akcent ? "text-white/85" : "text-tusz-2"}`}>
+                  {k.tresc}
+                </p>
+              </div>
+            </Karta>
+          );
+        })}
 
-            <h3 className="mt-4 font-display text-[1.0625rem] leading-snug font-extrabold text-przebicie [font-stretch:110%]">
-              {k.tytul}
-            </h3>
-            <p className="mt-2.5 max-w-[34ch] text-[0.9375rem] leading-relaxed text-przebicie-2 lg:max-w-none">
-              {k.tresc}
-            </p>
-          </Przebicie>
-        ))}
-      </ol>
+        <Karta span="lg:col-span-4" bezWciecia opoznienie={350} className="min-h-[14rem]">
+          <Grafika
+            nazwa="jak-dziala-klasa"
+            nr="04"
+            proporcje="4:3"
+            alt="Nauczyciel i klasa wspólnie omawiają decyzje podjęte w interaktywnej opowieści."
+            sizes="(max-width: 1024px) 100vw, 400px"
+          />
+        </Karta>
 
-      {/* Co z tego ma uczeń — rejestr, nie kafelki */}
-      <Przebicie opoznienie={140} className="mt-16 border-t border-linia pt-10">
-        <h3 className="font-display text-[1.25rem] font-extrabold tracking-[-0.01em] text-przebicie [font-stretch:110%] sm:text-[1.4375rem]">
-          Czego uczy się uczeń?
-        </h3>
-        <ul className="mt-6 grid border-t border-linia sm:grid-cols-2">
-          {PO_LEKCJI.map((p) => (
-            <li
-              key={p}
-              className="flex items-baseline gap-3.5 border-b border-linia py-3.5 sm:[&:nth-child(even)]:border-l sm:[&:nth-child(even)]:border-linia sm:[&:nth-child(even)]:pl-8 sm:[&:nth-child(odd)]:pr-8"
-            >
-              <span
-                aria-hidden="true"
-                className="h-1.5 w-1.5 shrink-0 translate-y-[-0.15em] bg-stempel-jasny"
-              />
-              <span className="text-[0.9375rem] leading-relaxed text-przebicie-2">
-                {p}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </Przebicie>
+        <Karta span="lg:col-span-12" ton="mgla" className="sm:p-10">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,18rem)_1fr] lg:items-center">
+            <h3 className="h-sekcji text-[1.625rem] text-tusz sm:text-[2rem]">Czego uczy się uczeń?</h3>
+            <ul className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
+              {PO_LEKCJI.map((p) => (
+                <li key={p} className="flex items-start gap-3 rounded-xl bg-white px-4 py-3.5">
+                  <svg viewBox="0 0 24 24" className="mt-0.5 h-5 w-5 shrink-0 text-akcent" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="m5 12.5 4.5 4.5L19 7.5" />
+                  </svg>
+                  <span className="text-[0.9375rem] leading-snug text-tusz">{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Karta>
+      </Siatka>
     </Sekcja>
   );
 }

@@ -1,3 +1,4 @@
+import { Logo } from "@/components/logo";
 import Link from "next/link";
 import { biezacaSesja, ETYKIETY_ROL } from "@/lib/sesja";
 import { wyloguj } from "@/app/logowanie/akcje";
@@ -18,8 +19,9 @@ export default async function UkladPanelu({
           <div className="flex items-center gap-4">
             <Link
               href="/panel"
-              className="font-display text-[0.875rem] font-extrabold tracking-[0.04em] text-przebicie uppercase [font-stretch:112%]"
+              className="inline-flex items-center gap-2.5 font-display text-[0.875rem] font-extrabold tracking-[0.04em] text-przebicie uppercase [font-stretch:112%]"
             >
+              <Logo rozmiar={28} />
               Cienie Rzeczypospolitej
             </Link>
             <span

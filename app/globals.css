@@ -46,6 +46,21 @@
   --font-mono: var(--font-azeret), ui-monospace, monospace;
 
   --ease-wybicie: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Witryna — jasny motyw publiczny (landing, podstrony). Panel zostaje na kalce. */
+  --color-tlo: #f5f4ef;
+  --color-karta: #ffffff;
+  --color-tusz: #14151f;
+  --color-tusz-2: #4a4d5e;
+  --color-tusz-3: #6b6e80;
+  --color-obrys: #e6e4dc;
+  --color-obrys-mocny: #d3d0c4;
+  --color-akcent: #5b47e0;
+  --color-akcent-ciemny: #4635c4;
+  --color-akcent-mgla: #ece9ff;
+  --color-piasek: #efe9dc;
+  --color-szalwia: #e4ebe1;
+  --color-nadruk-mgla: #fbe9e6;
 }
 
 /* --------------------------------------------------------------------------
@@ -478,4 +493,369 @@ html[data-js="1"] [data-kalka="odcisk"] {
   .podpowiedz-przewijania {
     display: none;
   }
+}
+
+
+/* ==========================================================================
+   WITRYNA — jasny, minimalistyczny motyw w układzie bento.
+   Wszystko stoi w kartach o jednym promieniu i jednym obrysie.
+   ========================================================================== */
+
+html:has(.witryna) {
+  color-scheme: light;
+}
+
+html:has(.witryna),
+body:has(.witryna) {
+  background-color: var(--color-tlo);
+}
+
+html:has(.witryna) * {
+  scrollbar-color: var(--color-obrys-mocny) var(--color-tlo);
+}
+
+html:has(.witryna) ::-webkit-scrollbar-track {
+  background: var(--color-tlo);
+}
+
+html:has(.witryna) ::-webkit-scrollbar-thumb {
+  background: var(--color-obrys-mocny);
+  border-color: var(--color-tlo);
+}
+
+html:has(.witryna) ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-tusz-3);
+}
+
+html:has(.witryna) :focus-visible {
+  outline-color: var(--color-akcent);
+}
+
+html:has(.witryna) ::selection {
+  background-color: var(--color-akcent-mgla);
+  color: var(--color-tusz);
+}
+
+.witryna {
+  min-height: 100svh;
+  background-color: var(--color-tlo);
+  color: var(--color-tusz);
+  font-family: var(--font-sans);
+}
+
+/* Lenis przejmuje przewijanie — natywne smooth wyłączone, żeby się nie biły. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+html.lenis:has(.witryna) {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+/* Karta bento */
+.karta {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-obrys);
+  border-radius: 1.5rem;
+  background-color: var(--color-karta);
+  padding: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .karta {
+    padding: 2rem;
+  }
+}
+
+.karta-akcent {
+  border-color: transparent;
+  background-color: var(--color-akcent);
+  color: #fff;
+}
+
+.karta-mgla {
+  border-color: transparent;
+  background-color: var(--color-akcent-mgla);
+}
+
+.karta-piasek {
+  border-color: transparent;
+  background-color: var(--color-piasek);
+}
+
+.karta-szalwia {
+  border-color: transparent;
+  background-color: var(--color-szalwia);
+}
+
+.karta-ciemna {
+  border-color: transparent;
+  background-color: var(--color-tusz);
+  color: #fff;
+}
+
+.karta-bez-wciecia {
+  padding: 0;
+}
+
+a.karta,
+.karta-link {
+  transition:
+    transform 400ms var(--ease-wybicie),
+    box-shadow 400ms var(--ease-wybicie),
+    border-color 400ms var(--ease-wybicie);
+}
+
+a.karta:hover,
+.karta-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -24px rgba(20, 21, 31, 0.35);
+  border-color: var(--color-obrys-mocny);
+}
+
+/* Etykieta — mała kapsułka nad tytułem karty */
+.etykieta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  background-color: var(--color-akcent-mgla);
+  padding: 0.3rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-akcent-ciemny);
+}
+
+.etykieta-biala {
+  background-color: rgb(255 255 255 / 0.18);
+  color: #fff;
+}
+
+.etykieta-szara {
+  background-color: var(--color-tlo);
+  color: var(--color-tusz-3);
+}
+
+/* Przyciski */
+.przycisk {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 2.75rem;
+  border-radius: 999px;
+  background-color: var(--color-tusz);
+  padding: 0.8rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #fff;
+  transition:
+    background-color 250ms var(--ease-wybicie),
+    transform 250ms var(--ease-wybicie);
+}
+
+.przycisk:hover {
+  background-color: var(--color-akcent);
+}
+
+.przycisk:active {
+  transform: scale(0.98);
+}
+
+.przycisk-akcent {
+  background-color: var(--color-akcent);
+}
+
+.przycisk-akcent:hover {
+  background-color: var(--color-akcent-ciemny);
+}
+
+.przycisk-jasny {
+  border: 1px solid var(--color-obrys-mocny);
+  background-color: transparent;
+  color: var(--color-tusz);
+}
+
+.przycisk-jasny:hover {
+  background-color: var(--color-karta);
+  border-color: var(--color-tusz);
+}
+
+.przycisk-bialy {
+  background-color: #fff;
+  color: var(--color-tusz);
+}
+
+.przycisk-bialy:hover {
+  background-color: var(--color-tlo);
+}
+
+/* Nagłówki witryny */
+.h-sekcji {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 112%;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.h-karty {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-stretch: 105%;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+/* Pojawianie się kart — bez JS od razu stan końcowy */
+html[data-js="1"] [data-pojaw="ukryty"] {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+[data-pojaw] {
+  transition:
+    opacity 700ms var(--ease-wybicie),
+    transform 700ms var(--ease-wybicie);
+}
+
+[data-pojaw="widoczny"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-js="1"] [data-pojaw="ukryty"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-pojaw] {
+    transition: none;
+  }
+}
+
+/* Miejsce na grafikę — do czasu dostarczenia pliku */
+.miejsce-grafiki {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem;
+  text-align: center;
+  background:
+    radial-gradient(120% 90% at 20% 0%, rgb(91 71 224 / 0.14), transparent 60%),
+    radial-gradient(90% 80% at 100% 100%, rgb(239 233 220 / 0.9), transparent 70%),
+    var(--color-akcent-mgla);
+  color: var(--color-akcent-ciemny);
+}
+
+/* FAQ */
+.faq-pozycja summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq-pozycja summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-pozycja[open] .faq-plus {
+  transform: rotate(45deg);
+  background-color: var(--color-akcent);
+  color: #fff;
+}
+
+.faq-pozycja::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition:
+    block-size 400ms var(--ease-wybicie),
+    content-visibility 400ms allow-discrete;
+}
+
+.faq-pozycja[open]::details-content {
+  block-size: auto;
+}
+
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+}
+
+/* ==========================================================================
+   PREZENTACJA — scena 1920×1080 skalowana do ekranu
+   ========================================================================== */
+
+@keyframes slajd-wej {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes wej {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slupek {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.slajd {
+  animation: slajd-wej 350ms ease-out both;
+}
+
+.wej {
+  animation: wej 800ms var(--ease-wybicie) both;
+  animation-delay: calc(var(--i, 0) * 110ms + 150ms);
+}
+
+.slupek {
+  transform-origin: bottom;
+  animation: slupek 1100ms var(--ease-wybicie) both;
+  animation-delay: calc(var(--i, 0) * 120ms + 500ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slajd,
+  .wej,
+  .slupek {
+    animation: none;
+  }
+}
+
+/* Etykieta w skali sceny prezentacji */
+.etykieta-xl {
+  font-size: 22px;
+  padding: 0.5rem 1.25rem;
+  letter-spacing: 0.1em;
 }

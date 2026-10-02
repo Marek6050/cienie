@@ -1,138 +1,93 @@
-import { Sekcja } from "./sekcja";
-import { Przebicie } from "@/components/przebicie";
+import { Karta, Siatka } from "@/components/witryna/karta";
+import { Sekcja } from "@/components/witryna/sekcja";
+import { NaglowekSekcji } from "@/components/witryna/naglowek-sekcji";
 
 const STOPNIE = [
   {
-    klucz: "fakt",
     etykieta: "Fakt",
-    tresc: "potwierdzony źródłem",
-    przyklad:
-      "Rozkaz Państwowego Komitetu Obrony ZSRR z lutego 1945 o internowaniu osób w wieku 17–50 lat zdolnych do pracy.",
-    klasa: "font-bold text-przebicie",
+    opis: "potwierdzony źródłem",
+    przyklad: "Rozkaz Państwowego Komitetu Obrony ZSRR z lutego 1945 o internowaniu osób w wieku 17–50 lat zdolnych do pracy.",
+    kropka: "bg-akcent",
   },
   {
-    klucz: "rekonstrukcja",
     etykieta: "Rekonstrukcja",
-    tresc: "odtworzona na podstawie dostępnych materiałów",
-    przyklad:
-      "Trasa transportu i rozkład obozu zbiorczego, złożone z relacji świadków i opracowań.",
-    klasa: "font-medium text-przebicie-2",
+    opis: "odtworzona na podstawie dostępnych materiałów",
+    przyklad: "Trasa transportu i rozkład obozu zbiorczego, złożone z relacji świadków i opracowań.",
+    kropka: "bg-[#e0a64a]",
   },
   {
-    klucz: "dramatyzacja",
     etykieta: "Dramatyzacja",
-    tresc: "element narracyjny, który nie jest przedstawiany jako fakt",
-    przyklad:
-      "Dialogi i postacie. Zawsze oznaczone w grze, nigdy podane jako cytat z dokumentu.",
-    klasa: "font-normal text-przebicie-3 italic",
+    opis: "element narracyjny, nie fakt",
+    przyklad: "Dialogi i postacie. Zawsze oznaczone w grze, nigdy podane jako cytat z dokumentu.",
+    kropka: "bg-tusz-3",
   },
 ];
 
 const ETAPY = [
-  {
-    nr: "1",
-    tytul: "Kwerenda",
-    tresc:
-      "Zaczynamy od źródeł: rozkazów, relacji, fotografii, dokumentów i opracowań.",
-  },
-  {
-    nr: "2",
-    tytul: "Weryfikacja",
-    tresc:
-      "Sprawdzamy, co jest bezpośrednio potwierdzone, a co wymaga ostrożnej rekonstrukcji na podstawie dostępnych materiałów i kontekstu.",
-  },
-  {
-    nr: "3",
-    tytul: "Scenariusz",
-    tresc:
-      "Dopiero wtedy rozkładamy wydarzenie na sceny i budujemy narrację, przez którą uczeń przechodzi krok po kroku.",
-  },
-  {
-    nr: "4",
-    tytul: "Status treści",
-    tresc: "Każdy element otrzymuje jasne oznaczenie:",
-    stopnie: true,
-    domkniecie:
-      "Dzięki temu uczeń wie, gdzie kończy się źródło, a zaczyna narracja.",
-  },
-  {
-    nr: "5",
-    tytul: "Warstwa interaktywna",
-    tresc:
-      "Dopiero na końcu dodajemy grafikę, dźwięk, mapy, wybory i inne elementy interaktywne. Technologia ma pomagać wejść w historię, ale nie może jej przykrywać.",
-  },
+  { nr: "1", tytul: "Kwerenda", tresc: "Zaczynamy od źródeł: rozkazów, relacji, fotografii, dokumentów i opracowań." },
+  { nr: "2", tytul: "Weryfikacja", tresc: "Sprawdzamy, co jest bezpośrednio potwierdzone, a co wymaga ostrożnej rekonstrukcji." },
+  { nr: "3", tytul: "Scenariusz", tresc: "Dopiero wtedy rozkładamy wydarzenie na sceny i budujemy narrację krok po kroku." },
 ];
 
 export function Metodologia() {
   return (
-    <Sekcja
-      id="metodologia"
-      nr="06"
-      tytul="Najpierw źródła. Dopiero potem narracja."
-      lead={
-        <>
-          Bierzemy jedno wydarzenie z historii Polski i zamieniamy je w
-          interaktywną opowieść, przez którą uczeń przechodzi sam. Nie ogląda
-          historii z boku — wchodzi w jej środek, analizuje sytuację i podejmuje
-          decyzje. Żeby takie doświadczenie było wiarygodne, wszystko zaczyna
-          się od źródeł:{" "}
-          <span className="text-przebicie">
-            każda historia zaczyna się od kwerendy, nie od scenariusza.
-          </span>
-        </>
-      }
-    >
-      <ol className="border-t border-linia">
+    <Sekcja id="metodologia">
+      <NaglowekSekcji
+        etykieta="Metodologia"
+        tytul="Najpierw źródła. Dopiero potem narracja."
+        lead={
+          <>
+            Każda historia zaczyna się od kwerendy, nie od scenariusza. Żeby
+            doświadczenie było wiarygodne, uczeń zawsze wie,{" "}
+            <span className="font-semibold text-tusz">gdzie kończy się źródło, a zaczyna narracja.</span>
+          </>
+        }
+      />
+
+      <Siatka>
         {ETAPY.map((e, i) => (
-          <Przebicie key={e.nr} opoznienie={i * 80}>
-            <li className="grid gap-4 border-b border-linia py-8 sm:grid-cols-[5.5rem_minmax(0,1fr)] sm:gap-8 sm:py-10">
-              <span className="liczby font-mono text-[0.75rem] tracking-[0.12em] text-stempel-jasny">
-                {e.nr}
-              </span>
-
-              <div className="max-w-[66ch]">
-                <h3 className="font-display text-[1.25rem] font-extrabold tracking-[-0.01em] text-przebicie [font-stretch:110%] sm:text-[1.4375rem]">
-                  {e.tytul}
-                </h3>
-                <p className="mt-3 text-[1rem] leading-[1.7] text-przebicie-2">
-                  {e.tresc}
-                </p>
-
-                {/* Trzy stopnie pewności, każdy w swojej grubości pisma —
-                    ta sama gradacja, którą uczeń widzi w grze. */}
-                {e.stopnie ? (
-                  <dl className="mt-5 border-t border-linia">
-                    {STOPNIE.map((s) => (
-                      <div
-                        key={s.klucz}
-                        className="flex flex-col gap-1 border-b border-linia py-3 sm:flex-row sm:items-baseline sm:gap-5"
-                      >
-                        <dt
-                          className={`shrink-0 font-mono text-[0.6875rem] tracking-[0.16em] uppercase sm:w-[11rem] ${s.klasa}`}
-                        >
-                          {s.etykieta}
-                        </dt>
-                        <dd className="text-[0.9375rem] leading-relaxed text-przebicie-2">
-                          {s.tresc}
-                          <span className="mt-1.5 block max-w-[52ch] text-[0.875rem] leading-relaxed text-przebicie-3">
-                            Np. {s.przyklad}
-                          </span>
-                        </dd>
-                      </div>
-                    ))}
-                  </dl>
-                ) : null}
-
-                {e.domkniecie ? (
-                  <p className="mt-5 max-w-[56ch] text-[0.9375rem] leading-relaxed text-przebicie">
-                    {e.domkniecie}
-                  </p>
-                ) : null}
-              </div>
-            </li>
-          </Przebicie>
+          <Karta key={e.nr} span="lg:col-span-4" opoznienie={i * 70} className="flex flex-col justify-between gap-10">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-akcent-mgla font-mono text-[0.875rem] font-bold text-akcent-ciemny">
+              {e.nr}
+            </span>
+            <div>
+              <h3 className="h-karty text-[1.25rem] text-tusz">{e.tytul}</h3>
+              <p className="mt-2 text-[0.9375rem] leading-relaxed text-tusz-2">{e.tresc}</p>
+            </div>
+          </Karta>
         ))}
-      </ol>
+
+        <Karta span="lg:col-span-8" ton="piasek" className="sm:p-8">
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white font-mono text-[0.875rem] font-bold text-tusz">4</span>
+            <h3 className="h-karty text-[1.25rem] text-tusz">Status treści</h3>
+          </div>
+          <p className="mt-3 text-[0.9375rem] text-tusz-2">Każdy element otrzymuje jasne oznaczenie:</p>
+          <dl className="mt-5 grid gap-2.5 md:grid-cols-3">
+            {STOPNIE.map((s) => (
+              <div key={s.etykieta} className="rounded-xl bg-white p-4">
+                <dt className="flex items-center gap-2 text-[0.9375rem] font-bold text-tusz">
+                  <span aria-hidden="true" className={`h-2.5 w-2.5 rounded-full ${s.kropka}`} />
+                  {s.etykieta}
+                </dt>
+                <dd className="mt-1 text-[0.8125rem] text-tusz-3">{s.opis}</dd>
+                <dd className="mt-3 text-[0.8125rem] leading-relaxed text-tusz-2">{s.przyklad}</dd>
+              </div>
+            ))}
+          </dl>
+        </Karta>
+
+        <Karta span="lg:col-span-4" ton="akcent" opoznienie={100} className="flex flex-col justify-between gap-10">
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 font-mono text-[0.875rem] font-bold">5</span>
+          <div>
+            <h3 className="h-karty text-[1.25rem]">Warstwa interaktywna</h3>
+            <p className="mt-2 text-[0.9375rem] leading-relaxed text-white/85">
+              Dopiero na końcu dodajemy grafikę, dźwięk, mapy i wybory.
+              Technologia ma pomagać wejść w historię, ale nie może jej przykrywać.
+            </p>
+          </div>
+        </Karta>
+      </Siatka>
     </Sekcja>
   );
 }

@@ -1,15 +1,12 @@
-import { Sekcja } from "./sekcja";
-import { Przebicie } from "@/components/przebicie";
+import { Karta, Siatka } from "@/components/witryna/karta";
+import { Sekcja } from "@/components/witryna/sekcja";
+import { NaglowekSekcji } from "@/components/witryna/naglowek-sekcji";
+import { Grafika } from "@/components/witryna/grafika";
 import {
-  IkonaKsiazka,
-  IkonaSluchawki,
-  IkonaNotatka,
-  IkonaPytanie,
-  IkonaLupa,
-  IkonaRozgalezienie,
-  IkonaWykres,
-  IkonaOsoby,
+  IkonaKsiazka, IkonaSluchawki, IkonaNotatka, IkonaPytanie,
+  IkonaLupa, IkonaRozgalezienie, IkonaWykres, IkonaOsoby,
 } from "@/components/ikony";
+import { StrzalkaPrzejscia } from "@/components/witryna/strzalka-przejscia";
 
 const ODBIORCA = [
   { Ikona: IkonaKsiazka, co: "czyta" },
@@ -27,101 +24,100 @@ const UCZESTNIK = [
 
 export function Doswiadczenie() {
   return (
-    <Sekcja
-      id="doswiadczenie"
-      nr="02"
-      tytul="Historia nie musi być kolejną prezentacją."
-      lead={
-        <>
-          Na tradycyjnej lekcji uczeń przede wszystkim słucha, czyta i
-          zapamiętuje.{" "}
-          <span className="text-przebicie">Tutaj staje się uczestnikiem</span> —
-          analizuje sytuację, podejmuje decyzje i sprawdza ich konsekwencje.
-        </>
-      }
-    >
-      <div className="grid items-stretch gap-0 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
-        {/* Przed — stan zastany. Wyciszony celowo. */}
-        <Przebicie className="border-t border-linia pt-7 lg:border-t-0 lg:border-r lg:border-linia lg:pt-0 lg:pr-12">
-          <h3 className="sygnatura">Tradycyjna lekcja</h3>
-          <p className="mt-3 max-w-[24ch] font-display text-[1.25rem] leading-snug font-extrabold text-przebicie-2 [font-stretch:110%] sm:text-[1.375rem]">
-            Uczeń głównie odbiera informacje.
-          </p>
-          <ul className="mt-7 space-y-0 border-t border-linia">
-            {ODBIORCA.map(({ Ikona, co }) => (
-              <li
-                key={co}
-                className="flex items-center gap-4 border-b border-linia py-3.5"
-              >
-                <Ikona className="h-5 w-5 shrink-0 text-przebicie-3" />
-                <span className="text-[0.9375rem] text-przebicie-3">{co}</span>
-              </li>
-            ))}
-          </ul>
-        </Przebicie>
+    <Sekcja id="doswiadczenie">
+      <NaglowekSekcji
+        etykieta="Od odbiorcy do uczestnika"
+        tytul="Historia nie musi być kolejną prezentacją."
+        lead={
+          <>
+            Na tradycyjnej lekcji uczeń często pozostaje odbiorcą — słucha,
+            czyta i zapamiętuje.{" "}
+            <span className="font-semibold text-tusz">Tutaj staje się uczestnikiem wydarzeń.</span>{" "}
+            Analizuje sytuację, podejmuje decyzje i sprawdza ich konsekwencje.
+          </>
+        }
+      />
 
-        {/* Zwrotnica — to jest zdanie tej sekcji */}
-        <Przebicie
-          opoznienie={120}
-          className="flex items-center justify-center py-10 lg:w-[13rem] lg:py-0"
-        >
-          <p className="flex items-center gap-4 font-mono text-[0.625rem] leading-relaxed tracking-[0.16em] text-przebicie-3 uppercase lg:flex-col lg:gap-3 lg:text-center">
+      <Siatka>
+        <Karta span="lg:col-span-5" bezWciecia ton="biala">
+          <div className="relative aspect-[4/3] overflow-hidden">
+            <Grafika
+              nazwa="lekcja-tradycyjna"
+              nr="02"
+              proporcje="4:3"
+              alt="Znudzony uczeń podpierający głowę w ławce podczas tradycyjnej lekcji."
+              sizes="(max-width: 1024px) 100vw, 480px"
+              className="grayscale"
+            />
+          </div>
+          <div className="p-6 sm:p-8">
+            <span className="etykieta etykieta-szara">Tradycyjna lekcja</span>
+            <p className="h-karty mt-4 text-[1.25rem] text-tusz-2">
+              Uczeń głównie odbiera informacje.
+            </p>
+            <ul className="mt-5 grid grid-cols-2 gap-2.5">
+              {ODBIORCA.map(({ Ikona, co }) => (
+                <li key={co} className="flex items-center gap-3 rounded-xl bg-tlo px-3.5 py-3">
+                  <Ikona className="h-5 w-5 shrink-0 text-tusz-3" />
+                  <span className="text-[0.9375rem] leading-tight text-tusz-2">{co}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Karta>
+
+        <Karta span="lg:col-span-2" ton="mgla" opoznienie={100} className="flex items-center justify-center p-6">
+          <p className="flex flex-row items-center gap-4 text-center font-mono text-[0.6875rem] tracking-[0.12em] text-akcent-ciemny uppercase lg:flex-col lg:gap-5">
             <span>Od odbiorcy</span>
-            <svg
-              viewBox="0 0 48 12"
-              aria-hidden="true"
-              className="h-3 w-12 shrink-0 text-stempel-jasny lg:rotate-90"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={1.5}
-              strokeLinecap="square"
-            >
-              <path d="M0 6h44M38 1.5 43.5 6 38 10.5" />
-            </svg>
-            <span className="text-stempel-jasny">Do uczestnika</span>
+            <StrzalkaPrzejscia className="text-akcent lg:hidden" />
+            <StrzalkaPrzejscia pionowo className="hidden text-akcent lg:block" />
+            <span className="font-bold">Do uczestnika</span>
           </p>
-        </Przebicie>
+        </Karta>
 
-        {/* Po — stan docelowy. Tu wchodzi fiolet: platforma działa. */}
-        <Przebicie
-          opoznienie={200}
-          className="border-t border-linia pt-7 lg:border-t-0 lg:pt-0 lg:pl-12"
-        >
-          <h3 className="sygnatura text-stempel-jasny">Interaktywna historia</h3>
-          <p className="mt-3 max-w-[24ch] font-display text-[1.25rem] leading-snug font-extrabold text-przebicie [font-stretch:110%] sm:text-[1.375rem]">
-            Uczeń aktywnie pracuje z historią.
-          </p>
-          <ul className="mt-7 space-y-0 border-t border-linia">
-            {UCZESTNIK.map(({ Ikona, co }) => (
-              <li
-                key={co}
-                className="flex items-center gap-4 border-b border-linia py-3.5"
-              >
-                <Ikona className="h-5 w-5 shrink-0 text-stempel-jasny" />
-                <span className="text-[0.9375rem] text-przebicie">{co}</span>
-              </li>
-            ))}
-          </ul>
-        </Przebicie>
-      </div>
+        <Karta span="lg:col-span-5" bezWciecia opoznienie={200} className="ring-2 ring-akcent ring-inset">
+          <div className="relative aspect-[4/3] overflow-hidden">
+            <Grafika
+              nazwa="lekcja-interaktywna"
+              nr="03"
+              proporcje="4:3"
+              alt="Uczeń w klasie trzymający telefon z ekranem wyboru decyzji w historycznej opowieści."
+              sizes="(max-width: 1024px) 100vw, 480px"
+            />
+          </div>
+          <div className="p-6 sm:p-8">
+            <span className="etykieta">Interaktywna historia</span>
+            <p className="h-karty mt-4 text-[1.25rem] text-tusz">
+              Uczeń aktywnie pracuje z historią.
+            </p>
+            <ul className="mt-5 grid grid-cols-2 gap-2.5">
+              {UCZESTNIK.map(({ Ikona, co }) => (
+                <li key={co} className="flex items-center gap-3 rounded-xl bg-akcent-mgla px-3.5 py-3">
+                  <Ikona className="h-5 w-5 shrink-0 text-akcent" />
+                  <span className="text-[0.9375rem] leading-tight text-tusz">{co}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Karta>
 
-      {/* Puenta sekcji — zmiana pytania, które zadaje sobie uczeń */}
-      <Przebicie opoznienie={280} className="linia-dokumentu mt-14 pt-8">
-        <div className="grid gap-6 sm:grid-cols-2 sm:gap-12">
-          <div>
-            <p className="sygnatura">Zamiast tylko pytać</p>
-            <p className="mt-3 font-display text-[1.125rem] leading-snug font-extrabold text-przebicie-3 [font-stretch:110%] sm:text-[1.375rem]">
-              „Co się wydarzyło?”
-            </p>
+        <Karta span="lg:col-span-12" ton="ciemna" opoznienie={80} className="sm:p-10">
+          <div className="grid items-center gap-6 sm:grid-cols-[1fr_auto_1fr] sm:gap-10">
+            <div>
+              <p className="font-mono text-[0.6875rem] tracking-[0.12em] text-white/55 uppercase">Zamiast tylko pytać</p>
+              <p className="h-karty mt-3 text-[1.375rem] text-white/60 sm:text-[1.75rem]">„Co się wydarzyło?”</p>
+            </div>
+            <StrzalkaPrzejscia className="text-[#7c6cf0] sm:hidden" pionowo />
+            <StrzalkaPrzejscia className="hidden text-[#7c6cf0] sm:block" />
+            <div>
+              <p className="font-mono text-[0.6875rem] tracking-[0.12em] text-[#b9adff] uppercase">Uczeń zaczyna pytać</p>
+              <p className="h-karty mt-3 text-[1.375rem] text-white sm:text-[1.75rem]">
+                „Co ja zrobiłbym w tej sytuacji — i dlaczego?”
+              </p>
+            </div>
           </div>
-          <div className="border-t border-linia pt-6 sm:border-t-0 sm:border-l sm:border-linia sm:pt-0 sm:pl-12">
-            <p className="sygnatura text-stempel-jasny">uczeń zaczyna pytać</p>
-            <p className="mt-3 max-w-[26ch] font-display text-[1.125rem] leading-snug font-extrabold text-przebicie [font-stretch:110%] sm:text-[1.375rem]">
-              „Co ja zrobiłbym w tej sytuacji — i dlaczego?”
-            </p>
-          </div>
-        </div>
-      </Przebicie>
+        </Karta>
+      </Siatka>
     </Sekcja>
   );
 }

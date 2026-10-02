@@ -1,3 +1,4 @@
+import { Logo } from "@/components/logo";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { FormularzLogowania } from "@/components/panel/formularz-logowania";
@@ -21,6 +22,7 @@ export default async function Logowanie({
             className="group inline-flex items-center gap-3 font-mono text-[0.6875rem] tracking-[0.16em] text-przebicie-3 uppercase transition-colors duration-200 hover:text-przebicie"
           >
             <IkonaStrzalka className="h-3.5 w-3.5 rotate-180" />
+            <Logo rozmiar={24} />
             Cienie Rzeczypospolitej
           </Link>
         </div>
