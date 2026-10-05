@@ -18,11 +18,11 @@ const azeret = Azeret_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Cienie Rzeczypospolitej — interaktywne opowieści historyczne dla szkół",
+    default: "Cienie Rzeczypospolitej: interaktywne opowieści historyczne dla szkół",
     template: "%s · Cienie Rzeczypospolitej",
   },
   description:
-    "Platforma interaktywnych opowieści historycznych opartych na źródłach. Pierwsza produkcja — „Cisza nad Raszową” — opowiada o deportacjach Górnoślązaków do ZSRR w 1945 roku.",
+    "Platforma interaktywnych opowieści historycznych opartych na źródłach. Pierwsza produkcja, „Cisza nad Raszową”, opowiada o deportacjach Górnoślązaków do ZSRR w 1945 roku.",
 };
 
 export const viewport: Viewport = {

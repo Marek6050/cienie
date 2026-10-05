@@ -8,7 +8,7 @@
  */
 export const SCENA_DEMO = {
   sygnatura: "CNR / SC-01",
-  tytul: "Scena 1 — Spotkanie na Raszowej",
+  tytul: "Scena 1: Spotkanie na Raszowej",
   tlo: "/archiwum/zima.webp",
   postac: {
     imie: "Anna Willner",
@@ -17,7 +17,7 @@ export const SCENA_DEMO = {
   didaskalia:
     "Klęczy w śniegu, trzymając dziecko. Obok stoi chłopiec z porcelanowym aniołkiem. W tle odgłosy walki.",
   kwestia:
-    "— Niech pan nie idzie dalej tą drogą. Oni zabierają wszystkich, kto sam stoi na nogach.",
+    "„Niech pan nie idzie dalej tą drogą. Oni zabierają wszystkich, kto sam stoi na nogach.”",
   wybory: [
     { klucz: "A", tekst: "Zostać i pomóc jej wstać", waga: "+2 empatia" },
     { klucz: "B", tekst: "Iść dalej w stronę mostu", waga: "−1 empatia" },

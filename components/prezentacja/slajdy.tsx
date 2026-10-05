@@ -1,13 +1,21 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
-import { Logo } from "@/components/logo";
 import { Grafika } from "@/components/witryna/grafika";
 import { Wej } from "./wej";
 import { Licznik } from "./licznik";
-import { ZdjecieOsoby } from "./zdjecie-osoby";
+import { ZdjecieOsoby } from "@/components/witryna/zdjecie-osoby";
 import { GlosowanieJury } from "./glosowanie";
-import { WYNIKI, ZESPOL_PREZENTACJA } from "./dane";
-import { IkonaOsoby, IkonaWykres, IkonaKsiazka, IkonaTeczka } from "@/components/ikony";
+import { ZnakPlatformy } from "./znak";
+import { ADRES_LANDINGU, GLOSY_UCZNIOW, WYBORY_JURY, WYNIKI, ZESPOL_PREZENTACJA } from "./dane";
+import {
+  IkonaOsoby,
+  IkonaKsiazka,
+  IkonaWarstwy,
+  IkonaWykres,
+  IkonaLupa,
+  IkonaRozgalezienie,
+  IkonaZegar,
+} from "@/components/ikony";
 
 /* ------------------------------------------------------------------ pomocnicze */
 
@@ -20,7 +28,7 @@ function Tytul({ etykieta, children, pod }: { etykieta: string; children: ReactN
     <Wej as="header" className="mb-9">
       <span className="etykieta etykieta-xl">{etykieta}</span>
       <h2 className="h-sekcji mt-5 text-[80px] text-tusz">{children}</h2>
-      {pod ? <p className="mt-4 max-w-[1500px] text-[34px] leading-snug text-tusz-2">{pod}</p> : null}
+      {pod ? <p className="mt-4 max-w-[1600px] text-[34px] leading-snug text-tusz-2">{pod}</p> : null}
     </Wej>
   );
 }
@@ -39,12 +47,12 @@ function Zrzut({
   podpis?: string;
   className?: string;
   pozycja?: string;
-  /** Powiększenie kadru — zrzuty z gry mają treść w środku i drobny druk. */
+  /** Powiększenie kadru: zrzuty z gry mają treść w środku i drobny druk. */
   zoom?: string;
   i?: number;
 }) {
   return (
-    <Wej i={i} className={`relative overflow-hidden rounded-3xl bg-piasek ${className}`}>
+    <Wej i={i} className={`relative overflow-hidden rounded-3xl border border-obrys bg-piasek ${className}`}>
       <Image src={src} alt={alt} fill sizes="1100px" className={`object-cover ${pozycja} ${zoom ?? ""}`} />
       {podpis ? (
         <span className="etykieta etykieta-xl absolute bottom-5 left-5 !bg-white/92 !text-tusz shadow-md">
@@ -72,20 +80,24 @@ export function Otwarcie() {
         <Wej className="karta flex flex-col justify-between !p-[64px]">
           <div className="flex items-center justify-between">
             <span className="etykieta etykieta-xl">Akademia STEM 2026 · Projekt nr 2</span>
-            <Logo rozmiar={96} />
+            <ZnakPlatformy rozmiar={92} />
           </div>
           <div>
             <h1 className="h-sekcji text-[100px] leading-[1] text-balance text-tusz">
               Lekcja historii nie musi być nudna.
             </h1>
-            <p className="mt-9 max-w-[900px] text-[38px] leading-snug text-tusz-2">
-              <strong className="font-semibold text-tusz">Cisza nad Raszową</strong> — gra, w której
-              uczeń przeżywa Tragedię Górnośląską 1945 roku i sam podejmuje decyzje.
+            <p className="mt-9 max-w-[900px] text-[36px] leading-snug text-tusz-2">
+              <strong className="font-semibold text-tusz">Cienie Rzeczypospolitej</strong> to platforma
+              interaktywnych lekcji historii dla szkół i instytucji. Uczeń nie czyta o wydarzeniach,
+              tylko podejmuje w nich decyzje.
             </p>
           </div>
-          <p className="text-[26px] text-tusz-3">
-            Zespół Szkół Technicznych i Ogólnokształcących w Kędzierzynie-Koźlu
-          </p>
+          <div className="flex items-end justify-between gap-6">
+            <p className="max-w-[560px] text-[26px] leading-snug text-tusz-3">
+              Zespół Szkół Technicznych i Ogólnokształcących w Kędzierzynie-Koźlu
+            </p>
+            <p className="font-mono text-[34px] font-medium text-akcent-ciemny">{ADRES_LANDINGU}</p>
+          </div>
         </Wej>
 
         <Wej i={2} className="karta karta-bez-wciecia relative">
@@ -99,9 +111,9 @@ export function Otwarcie() {
           />
           <div className="absolute inset-x-6 bottom-6 overflow-hidden rounded-2xl bg-white shadow-2xl">
             <div className="relative h-[250px] overflow-hidden">
-              <Image src="/prezentacja/gra-koniew-wybory.webp" alt="Kadr z gry: wybór odpowiedzi w scenie „Rozkaz Koniewa”." fill sizes="720px" className="scale-[1.9] object-cover object-center" />
+              <Image src="/prezentacja/gra-koniew-wybory.webp" alt="Kadr z pierwszej lekcji na platformie: wybór odpowiedzi w scenie „Rozkaz Koniewa”." fill sizes="720px" className="scale-[1.9] object-cover object-center" />
             </div>
-            <p className="px-6 py-4 text-[24px] text-tusz-2">Kadr z działającego prototypu</p>
+            <p className="px-6 py-4 text-[24px] text-tusz-2">Pierwsza lekcja na platformie: Cisza nad Raszową</p>
           </div>
         </Wej>
       </div>
@@ -114,20 +126,15 @@ export function Otwarcie() {
 export function Team() {
   return (
     <Slajd>
-      <Tytul etykieta="Nasz team" pod="Uczniowie ZSTiO w Kędzierzynie-Koźlu. Każdy z nas współtworzył grę i zna ją od środka.">
-        Pięć osób. Jedna gra.
+      <Tytul etykieta="Nasz team" pod="Uczniowie ZSTiO w Kędzierzynie-Koźlu. Każdy z nas współtworzył platformę i zna ją od środka.">
+        Pięć osób. Jedna platforma.
       </Tytul>
       <div className="grid flex-1 grid-cols-5 gap-5">
         {ZESPOL_PREZENTACJA.map((o, k) => (
-          <Wej key={o.slug} i={k + 1} className="karta flex flex-col items-center !px-6 !py-10 text-center">
+          <Wej key={o.slug} i={k + 1} className="karta flex flex-col items-center !px-6 !py-12 text-center">
             <ZdjecieOsoby slug={o.slug} imie={o.imie} rozmiar={260} />
-            <h3 className="h-karty mt-9 text-[40px] leading-tight text-tusz">{o.imie}</h3>
-            <p className="mt-3 text-[28px] leading-snug text-tusz-2">{o.rola}</p>
-            {"dopisek" in o ? (
-              <span className="etykieta etykieta-xl mt-auto whitespace-nowrap !px-4 !text-[20px]">{o.dopisek}</span>
-            ) : (
-              <span className="mt-auto" />
-            )}
+            <h3 className="h-karty mt-10 text-[40px] leading-tight text-tusz">{o.imie}</h3>
+            <p className="mt-4 text-[28px] leading-snug text-tusz-2">{o.rola}</p>
           </Wej>
         ))}
       </div>
@@ -138,97 +145,216 @@ export function Team() {
 /* ------------------------------------------------------------------ 3. problem */
 
 export function Problem() {
+  const problemy = [
+    {
+      nr: "01",
+      ton: "karta-mgla",
+      tytul: "Brak informacji, a przez to świadomości",
+      tresc: "Uczniowie nie znają lokalnych historii i tragedii. Na przykład deportacje dziesiątek tysięcy mieszkańców Górnego Śląska w 1945 roku są w szkołach rzadko poruszane.",
+    },
+    {
+      nr: "02",
+      ton: "karta-piasek",
+      tytul: "Nudna forma nauczania",
+      tresc: "Wykład i podręcznik: uczeń odbiera, ale nie uczestniczy. W naszym pilotażu po takiej lekcji uczniowie odpowiadali poprawnie na zaledwie 53,4% pytań.",
+    },
+    {
+      nr: "03",
+      ton: "karta-szalwia",
+      tytul: "Długie przygotowanie do lekcji",
+      tresc: "Przygotowanie angażującej lekcji historii zajmuje nauczycielowi bardzo dużo czasu, a gotowych interaktywnych materiałów jest niewiele.",
+    },
+  ];
   return (
     <Slajd>
-      <Tytul etykieta="Źródło problemu">Lokalna historia znika z pamięci — i z lekcji.</Tytul>
-      <div className="grid flex-1 grid-cols-2 gap-6">
-        <Wej i={1} className="karta karta-mgla flex flex-col !p-12">
-          <span className="font-mono text-[28px] text-akcent-ciemny">01</span>
-          <h3 className="h-sekcji mt-6 text-[58px] text-tusz">Brak informacji, a przez to świadomości</h3>
-          <p className="mt-6 text-[38px] leading-snug text-tusz-2">
-            Uczniowie nie znają lokalnych historii i tragedii. Deportacje dziesiątek tysięcy
-            mieszkańców Górnego Śląska w 1945 roku są w szkołach rzadko poruszane.
-          </p>
-        </Wej>
-        <Wej i={2} className="karta karta-piasek flex flex-col !p-12">
-          <span className="font-mono text-[28px] text-tusz-3">02</span>
-          <h3 className="h-sekcji mt-6 text-[58px] text-tusz">Nudna forma nauczania</h3>
-          <p className="mt-6 text-[38px] leading-snug text-tusz-2">
-            Wykład i podręcznik: uczeń odbiera, ale nie uczestniczy. W naszym pilotażu po takiej
-            lekcji uczniowie odpowiadali poprawnie na zaledwie{" "}
-            <strong className="font-bold text-tusz">53,4%</strong> pytań.
-          </p>
-        </Wej>
+      <Tytul etykieta="Źródło problemu">Lokalna historia znika z pamięci i z lekcji.</Tytul>
+      <div className="grid flex-1 grid-cols-3 gap-6">
+        {problemy.map((p, k) => (
+          <Wej key={p.nr} i={k + 1} className={`karta ${p.ton} flex flex-col !p-12`}>
+            <span className="font-mono text-[28px] text-tusz-3">{p.nr}</span>
+            <h3 className="h-sekcji mt-6 text-[52px] leading-[1.08] text-tusz">{p.tytul}</h3>
+            <p className="mt-8 text-[36px] leading-snug text-tusz-2">{p.tresc}</p>
+          </Wej>
+        ))}
       </div>
-      <Wej i={4} className="karta karta-ciemna mt-6 flex items-center gap-10 !px-12 !py-8">
-        <p className="shrink-0 text-[30px] font-semibold text-white">Komu pomagamy:</p>
-        <ul className="flex flex-wrap gap-3 text-[28px]">
-          {["Uczniowie 13–19 lat", "Nauczyciele historii i WOS", "Lokalne społeczności", "Muzea i instytucje pamięci"].map((c) => (
-            <li key={c} className="rounded-full bg-white/12 px-6 py-2.5 text-white">{c}</li>
-          ))}
-        </ul>
+    </Slajd>
+  );
+}
+
+/* ------------------------------------------------------------------ 4. grupa docelowa */
+
+const PERSPEKTYWY = [
+  {
+    rola: "Kluczowy odbiorca",
+    nazwa: "Nauczyciel",
+    opis: "Prowadzi i organizuje lekcję",
+    ton: "karta-mgla",
+    Ikona: IkonaKsiazka,
+    wartosci: ["gotowe narzędzie dydaktyczne", "większe zaangażowanie uczniów", "praca z historią w nowoczesnej formie"],
+  },
+  {
+    rola: "Bezpośredni użytkownik",
+    nazwa: "Uczeń",
+    opis: "Doświadcza historii i podejmuje decyzje",
+    ton: "",
+    Ikona: IkonaOsoby,
+    wartosci: ["aktywna nauka zamiast biernego słuchania", "decyzje i analiza ich konsekwencji", "rozwój krytycznego myślenia"],
+  },
+  {
+    rola: "Partner treści",
+    nazwa: "Muzeum i instytucja",
+    opis: "Opowiada własną historię przy pomocy platformy",
+    ton: "karta-piasek",
+    Ikona: IkonaWarstwy,
+    wartosci: ["nowy sposób pokazywania lokalnej historii", "angażowanie młodych odbiorców", "cyfrowe użycie zbiorów i źródeł"],
+  },
+];
+
+export function GrupaDocelowa() {
+  return (
+    <Slajd>
+      <Tytul etykieta="Grupa docelowa" pod="Łączymy tych, którzy uczą historii, tych, którzy jej doświadczają, i tych, którzy ją przechowują.">
+        Jedna platforma, trzy perspektywy.
+      </Tytul>
+      <div className="grid min-h-0 flex-1 grid-cols-3 gap-6">
+        {PERSPEKTYWY.map((p, k) => (
+          <Wej key={p.nazwa} i={k + 1} className={`karta ${p.ton} flex flex-col !p-9`}>
+            <div className="flex items-center justify-between">
+              <span className="etykieta etykieta-xl !bg-white/80">{p.rola}</span>
+              <span className="flex h-[68px] w-[68px] items-center justify-center rounded-2xl bg-akcent text-white">
+                <p.Ikona className="h-10 w-10" />
+              </span>
+            </div>
+            <h3 className="h-sekcji mt-6 text-[50px] leading-[1.05] text-tusz">{p.nazwa}</h3>
+            <p className="mt-3 text-[28px] leading-snug text-tusz-2">{p.opis}</p>
+            <p className="mt-6 font-mono text-[22px] tracking-[0.1em] text-tusz-3 uppercase">Wartość</p>
+            <ul className="mt-3 space-y-3 text-[27px] leading-snug text-tusz">
+              {p.wartosci.map((w) => (
+                <li key={w} className="flex gap-4"><Ptaszek className="mt-0.5 !h-[30px] !w-[30px]" />{w}</li>
+              ))}
+            </ul>
+          </Wej>
+        ))}
+      </div>
+      <Wej i={5} className="karta karta-ciemna mt-5 shrink-0 !px-10 !py-5">
+        <p className="text-[30px] leading-snug text-white">
+          Nauczyciel dostaje <strong className="font-semibold">narzędzie</strong>. Uczeń: <strong className="font-semibold">doświadczenie</strong>.
+          Instytucja: <strong className="font-semibold">nowy sposób opowiadania historii</strong>.
+        </p>
       </Wej>
     </Slajd>
   );
 }
 
-/* ------------------------------------------------------------------ 4. aplikacja */
+/* ------------------------------------------------------------------ 5. cel */
 
-export function Aplikacja() {
-  const funkcje = ["Dialogi z wyborami", "Mapa regionu", "Oś czasu", "Słownik pojęć i postaci", "Quiz", "Minigra ze zdjęciami"];
+export function Cel() {
+  const szczegolowe = [
+    { Ikona: IkonaRozgalezienie, t: "Większe zaangażowanie uczniów" },
+    { Ikona: IkonaLupa, t: "Krytyczne myślenie i praca ze źródłami" },
+    { Ikona: IkonaOsoby, t: "Historia z perspektywy człowieka i jego decyzji" },
+    { Ikona: IkonaZegar, t: "Krótsze przygotowanie nauczyciela do lekcji" },
+  ];
   return (
     <Slajd>
-      <Tytul etykieta="Czym się zajmujemy">Cisza nad Raszową — historia, w którą się gra.</Tytul>
+      <Tytul etykieta="Cel projektu">Z biernego odbioru na aktywny udział.</Tytul>
       <div className="grid flex-1 grid-cols-12 gap-6">
-        <Wej i={1} className="karta col-span-5 flex flex-col !p-11">
-          <p className="text-[34px] leading-snug text-tusz">
-            Wcielasz się w młodego zwiadowcę Armii Czerwonej w styczniu 1945 roku.
-          </p>
-          <p className="mt-6 text-[32px] leading-snug text-tusz-2">
-            Na płonącym Górnym Śląsku każda rozmowa to dylemat: <strong className="font-semibold text-tusz">rozkaz czy sumienie</strong>. Gra
-            pokazuje konsekwencje — nie ocenia za ciebie.
-          </p>
-          <ul className="mt-8 flex flex-wrap gap-2.5">
-            {funkcje.map((f) => (
-              <li key={f} className="rounded-full bg-akcent-mgla px-5 py-2 text-[24px] font-medium text-akcent-ciemny">{f}</li>
-            ))}
-          </ul>
-          <p className="mt-auto pt-6 text-[26px] text-tusz-3">Działa w przeglądarce · komputer i telefon · PL / EN</p>
-        </Wej>
+        <div className="col-span-5 flex flex-col gap-6">
+          <Wej i={1} className="karta karta-mgla flex items-center gap-6 !px-9 !py-8">
+            <ZnakPlatformy rozmiar={84} />
+            <div>
+              <p className="h-sekcji text-[40px] leading-tight text-tusz">Cienie Rzeczypospolitej</p>
+              <p className="mt-1 text-[26px] text-tusz-2">platforma interaktywnych lekcji historii</p>
+            </div>
+          </Wej>
+          <Wej i={2} className="karta karta-akcent flex flex-1 flex-col justify-center !p-11">
+            <p className="font-mono text-[22px] tracking-[0.1em] text-white/70 uppercase">Cel główny</p>
+            <p className="h-sekcji mt-5 text-[46px] leading-[1.12]">
+              Zmiana poznawania historii z biernego odbierania informacji na aktywne uczestniczenie w wydarzeniach.
+            </p>
+          </Wej>
+        </div>
 
-        <div className="col-span-7 grid grid-cols-2 grid-rows-[1.25fr_1fr] gap-6">
-          <Zrzut i={2} src="/prezentacja/gra-koniew-wybory.webp" alt="Scena „Rozkaz Koniewa” z wyborem odpowiedzi." podpis="Wybory moralne" className="col-span-2" pozycja="object-center" zoom="scale-[1.45]" />
-          <Zrzut i={3} src="/prezentacja/gra-mapa.webp" alt="Interaktywna mapa regionu z postacią gracza." podpis="Mapa" pozycja="object-center" />
-          <Zrzut i={4} src="/prezentacja/gra-os-czasu.webp" alt="Oś czasu „Świadectwa z Wymazanej Ziemi”." podpis="Oś czasu" />
+        <div className="col-span-7 flex flex-col">
+          <Wej i={3}>
+            <p className="font-mono text-[24px] tracking-[0.1em] text-tusz-3 uppercase">Cele szczegółowe</p>
+          </Wej>
+          <ol className="mt-5 grid flex-1 grid-rows-4 gap-5">
+            {szczegolowe.map((c, k) => (
+              <Wej as="li" key={c.t} i={4 + k} className="karta flex items-center gap-8 !px-9 !py-0">
+                <span className="flex h-[84px] w-[84px] shrink-0 items-center justify-center rounded-2xl bg-akcent-mgla text-akcent">
+                  <c.Ikona className="h-11 w-11" />
+                </span>
+                <span className="font-mono text-[34px] text-tusz-3">{k + 1}</span>
+                <span className="h-sekcji text-[42px] leading-[1.1] text-tusz">{c.t}</span>
+              </Wej>
+            ))}
+          </ol>
         </div>
       </div>
     </Slajd>
   );
 }
 
-/* ------------------------------------------------------------------ 5. nauczyciele */
+/* ------------------------------------------------------------------ 6. co zrobiliśmy */
+
+export function Aplikacja() {
+  const funkcje = ["Dialogi z wyborami", "Mapa regionu", "Oś czasu", "Słownik pojęć i postaci", "Quiz", "Panel nauczyciela"];
+  return (
+    <Slajd>
+      <Tytul etykieta="Co zrobiliśmy">Działająca platforma, gra i landing page.</Tytul>
+      <div className="grid flex-1 grid-cols-12 gap-6">
+        <Wej i={1} className="karta col-span-4 flex flex-col !p-10">
+          <p className="text-[32px] leading-snug text-tusz">
+            Zbudowaliśmy platformę lekcji historii. Pierwsza lekcja to gra{" "}
+            <strong className="font-semibold">Cisza nad Raszową</strong>.
+          </p>
+          <p className="mt-6 text-[28px] leading-snug text-tusz-2">
+            Wcielasz się w młodego zwiadowcę Armii Czerwonej w 1945 roku. Każda rozmowa to dylemat:{" "}
+            <strong className="font-semibold text-tusz">rozkaz czy sumienie</strong>.
+          </p>
+          <ul className="mt-7 flex flex-wrap gap-2.5">
+            {funkcje.map((f) => (
+              <li key={f} className="rounded-full bg-akcent-mgla px-4 py-2 text-[22px] font-medium text-akcent-ciemny">{f}</li>
+            ))}
+          </ul>
+          <p className="mt-auto pt-6 text-[24px] text-tusz-3">Przeglądarka · komputer i telefon · PL / EN</p>
+        </Wej>
+
+        <div className="col-span-8 grid grid-cols-2 grid-rows-2 gap-6">
+          <Zrzut i={2} src="/prezentacja/platforma-landing.webp" alt="Landing page platformy Cienie Rzeczypospolitej." podpis={`Landing page · ${ADRES_LANDINGU}`} />
+          <Zrzut i={3} src="/prezentacja/gra-koniew-wybory.webp" alt="Scena „Rozkaz Koniewa” z wyborem odpowiedzi." podpis="Gra: wybory" pozycja="object-center" zoom="scale-[1.45]" />
+          <Zrzut i={4} src="/prezentacja/gra-mapa.webp" alt="Interaktywna mapa regionu z postacią gracza." podpis="Gra: mapa" pozycja="object-center" />
+          <Zrzut i={5} src="/prezentacja/gra-os-czasu.webp" alt="Oś czasu „Świadectwa z Wymazanej Ziemi”." podpis="Gra: oś czasu" />
+        </div>
+      </div>
+    </Slajd>
+  );
+}
+
+/* ------------------------------------------------------------------ 7. nauczyciele */
 
 const UCZNIOWIE = [
   { u: "Uczeń A", sceny: 9, quiz: "9 / 10" },
   { u: "Uczeń B", sceny: 9, quiz: "8 / 10" },
-  { u: "Uczeń C", sceny: 7, quiz: "—" },
-  { u: "Uczeń D", sceny: 5, quiz: "—" },
-  { u: "Uczeń E", sceny: 3, quiz: "—" },
+  { u: "Uczeń C", sceny: 7, quiz: "n/d" },
+  { u: "Uczeń D", sceny: 5, quiz: "n/d" },
+  { u: "Uczeń E", sceny: 3, quiz: "n/d" },
 ];
 
 export function Nauczyciele() {
   return (
     <Slajd>
-      <Tytul etykieta="Nie tylko gra" pod="Gra to połowa rozwiązania. Drugą połową jest nauczyciel — dlatego dajemy mu gotową lekcję i panel.">
+      <Tytul etykieta="Nie tylko gra" pod="Gra to połowa rozwiązania. Drugą połową jest nauczyciel, dlatego dajemy mu gotową lekcję i panel.">
         Narzędzie dla nauczyciela.
       </Tytul>
       <div className="grid flex-1 grid-cols-12 gap-6">
         <Wej i={1} className="karta karta-mgla col-span-5 flex flex-col !p-11">
           <h3 className="h-sekcji text-[48px] text-tusz">Gotowe materiały</h3>
-          <ul className="mt-8 space-y-6">
+          <ul className="mt-8 space-y-7">
             {[
-              ["Scenariusz lekcji na 45 minut", "wprowadzenie → gra → test i dyskusja"],
-              ["Test wiedzy: 30 pytań", "ten sam przed i po grze — do własnych pomiarów"],
+              ["Scenariusz lekcji na 45 minut", "wprowadzenie, gra, test i dyskusja"],
+              ["Test wiedzy: 30 pytań", "ten sam przed i po grze, do własnych pomiarów"],
               ["Ankieta dla nauczyciela", "5 pytań, żeby ocenić lekcję"],
             ].map(([t, o]) => (
               <li key={t} className="flex items-start gap-5">
@@ -276,7 +402,7 @@ export function Nauczyciele() {
   );
 }
 
-/* ------------------------------------------------------------------ 6. decyzja jury */
+/* ------------------------------------------------------------------ 8. decyzja jury */
 
 export function DecyzjaJury() {
   return (
@@ -289,114 +415,117 @@ export function DecyzjaJury() {
   );
 }
 
-/* ------------------------------------------------------------------ 7. dane */
-
-export function TwardeDane() {
-  const roznica = (WYNIKI.po - WYNIKI.przed).toFixed(1).replace(".", ",");
-  const wzgledna = Math.round(((WYNIKI.po - WYNIKI.przed) / WYNIKI.przed) * 100);
+/** Tylko w pliku PPTX: tam nie ma interaktywnego głosowania, więc pokazujemy wszystkie odpowiedzi gry. */
+export function OdpowiedziGry() {
   return (
     <Slajd>
-      <Tytul etykieta="Twarde dane" pod={`Pilotaż, N = ${WYNIKI.n} uczniów: ten sam test (30 pytań) po wykładzie i po grze.`}>
-        Po grze uczniowie wiedzą więcej.
+      <Tytul etykieta="Decyzja jury" pod="Tak odpowiada gra. Każdy uczeń staje przed takim wyborem i od razu widzi konsekwencje.">
+        Rozkaz Koniewa: odpowiedzi gry.
+      </Tytul>
+      <div className="grid flex-1 grid-cols-3 gap-6">
+        {WYBORY_JURY.map((w, k) => (
+          <Wej key={w.nr} i={k + 1} className="karta flex flex-col !p-10">
+            <span className="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-akcent font-mono text-[40px] font-bold text-white">{w.nr}</span>
+            <h3 className="h-sekcji mt-7 text-[50px] leading-tight text-tusz">{w.tekst}</h3>
+            <div className="mt-auto rounded-2xl bg-akcent-mgla p-7">
+              <p className="font-mono text-[20px] tracking-[0.1em] text-akcent-ciemny uppercase">Koniew odpowiada</p>
+              <div className="mt-3 space-y-1 text-[28px] leading-snug text-tusz">
+                {w.odpowiedz.map((l) => (
+                  <p key={l} className={l.startsWith("(") ? "text-tusz-3 italic" : ""}>{l}</p>
+                ))}
+              </div>
+            </div>
+          </Wej>
+        ))}
+      </div>
+    </Slajd>
+  );
+}
+
+/* ------------------------------------------------------------------ 9. dane */
+
+const pl = (n: number, m = 1) => n.toFixed(m).replace(".", ",");
+
+export function TwardeDane() {
+  const roznica = WYNIKI.po - WYNIKI.przed;
+  const { procentChcacych, cytaty } = GLOSY_UCZNIOW;
+  return (
+    <Slajd>
+      <Tytul etykieta="Twarde dane" pod={`Pilotaż, N = ${WYNIKI.n} uczniów: ten sam test (30 pytań) po wykładzie i po lekcji na platformie.`}>
+        Uczniowie wiedzą więcej i chcą korzystać.
       </Tytul>
 
-      <div className="grid flex-1 grid-cols-12 gap-6">
-        <Wej i={1} className="karta col-span-7 flex flex-col !p-10">
-          <div className="flex items-center gap-8 text-[26px] text-tusz-2">
+      <div className="grid min-h-0 flex-1 grid-cols-12 gap-6">
+        <Wej i={1} className="karta col-span-6 flex flex-col !p-9">
+          <div className="flex items-center gap-7 text-[24px] text-tusz-2">
             <span className="flex items-center gap-3"><span className="h-5 w-5 rounded-md bg-[#c9c6b8]" />Po wykładzie</span>
             <span className="flex items-center gap-3"><span className="h-5 w-5 rounded-md bg-akcent" />Po grze</span>
-            <span className="ml-auto text-[22px] text-tusz-3">poprawne odpowiedzi, %</span>
+            <span className="ml-auto text-[20px] text-tusz-3">poprawne odpowiedzi, %</span>
           </div>
-          <div className="mt-6 grid flex-1 grid-cols-4 gap-6">
+          <div className="mt-5 grid min-h-0 flex-1 grid-cols-4 gap-4">
             {WYNIKI.kategorie.map((k, g) => (
               <div key={k.nazwa} className="flex flex-col">
-                <div className="flex flex-1 items-end justify-center gap-3 border-b-2 border-obrys pb-0">
+                <div className="flex flex-1 items-end justify-center gap-2 border-b-2 border-obrys">
                   {[
                     { v: k.przed, kolor: "bg-[#c9c6b8]", tekst: "text-tusz-3", j: 0 },
                     { v: k.po, kolor: "bg-akcent", tekst: "text-akcent-ciemny", j: 1 },
                   ].map((b) => (
-                    <div key={b.j} className="flex h-full w-[84px] flex-col justify-end">
-                      <span className={`mb-2 text-center text-[28px] font-bold tabular-nums ${b.tekst}`}>{b.v.toFixed(1).replace(".", ",")}</span>
-                      <div
-                        className={`slupek w-full rounded-t-xl ${b.kolor}`}
-                        style={{ height: `${(b.v / 100) * 78}%`, ["--i" as string]: g * 2 + b.j }}
-                      />
+                    <div key={b.j} className="flex h-full w-[58px] flex-col justify-end">
+                      <span className={`mb-2 text-center text-[24px] font-bold tabular-nums ${b.tekst}`}>{pl(b.v)}</span>
+                      <div className={`slupek w-full rounded-t-lg ${b.kolor}`} style={{ height: `${(b.v / 100) * 76}%`, ["--i" as string]: g * 2 + b.j }} />
                     </div>
                   ))}
                 </div>
-                <p className="mt-4 text-center text-[26px] leading-tight font-medium text-tusz">{k.nazwa}</p>
+                <p className="mt-3 text-center text-[22px] leading-tight font-medium text-tusz">{k.nazwa}</p>
               </div>
             ))}
           </div>
         </Wej>
 
-        <div className="col-span-5 flex flex-col gap-6">
-          <Wej i={2} className="karta karta-akcent flex flex-1 flex-col justify-center !px-11">
-            <p className="h-sekcji text-[150px] leading-none whitespace-nowrap">
-              <Licznik do={Number(roznica.replace(",", "."))} prefiks="+" /> <span className="text-[64px]">pp</span>
-            </p>
-            <p className="mt-5 text-[32px] leading-snug text-white/90">
-              {WYNIKI.przed.toFixed(1).replace(".", ",")}% → {WYNIKI.po.toFixed(1).replace(".", ",")}% poprawnych
-              odpowiedzi, czyli o {wzgledna}% więcej niż po wykładzie.
-            </p>
-          </Wej>
-          <Wej i={3} className="karta karta-mgla flex items-center gap-8 !px-11 !py-8">
-            <p className="h-sekcji shrink-0 text-[84px] leading-none whitespace-nowrap text-tusz tabular-nums">
-              {WYNIKI.nauczyciele.ocena.toFixed(2).replace(".", ",")}<span className="text-[44px] text-tusz-3"> / 5</span>
-            </p>
-            <p className="text-[28px] leading-snug text-tusz-2">
-              ocena nauczycieli. {WYNIKI.nauczyciele.rekomenduje}% rekomenduje włączenie gry do lekcji.
-            </p>
-          </Wej>
-        </div>
-      </div>
-    </Slajd>
-  );
-}
-
-/* ------------------------------------------------------------------ 8. cel */
-
-export function Cel() {
-  const cele = [
-    { Ikona: IkonaOsoby, tytul: "Uczniowie", tresc: "Zapamiętują fakty i rozumieją ludzkie wybory — zamiast uczyć się dat na pamięć." },
-    { Ikona: IkonaKsiazka, tytul: "Nauczyciele", tresc: "Gotowa lekcja na 45 minut. Bez instalacji i bez specjalnego sprzętu." },
-    { Ikona: IkonaTeczka, tytul: "Instytucje pamięci", tresc: "Ten sam silnik opowie kolejne historie — dla muzeów, domów kultury i pomników." },
-  ];
-  return (
-    <Slajd>
-      <Tytul etykieta="Cel projektu" pod="Sprawić, by lokalna historia zostawała w głowie — w każdej szkole i w każdym miejscu pamięci.">
-        Od jednej gry do platformy.
-      </Tytul>
-      <div className="grid flex-1 grid-cols-12 gap-6">
-        <div className="col-span-5 flex flex-col gap-5">
-          {cele.map((c, k) => (
-            <Wej key={c.tytul} i={k + 1} className="karta flex flex-1 items-start gap-6 !px-9 !py-7">
-              <span className="flex h-[76px] w-[76px] shrink-0 items-center justify-center rounded-2xl bg-akcent-mgla text-akcent">
-                <c.Ikona className="h-10 w-10" />
-              </span>
-              <div>
-                <h3 className="h-karty text-[38px] text-tusz">{c.tytul}</h3>
-                <p className="mt-2 text-[27px] leading-snug text-tusz-2">{c.tresc}</p>
-              </div>
+        <div className="col-span-6 flex min-h-0 flex-col gap-6">
+          <div className="grid grid-cols-2 gap-6">
+            <Wej i={2} className="karta karta-akcent flex flex-col justify-center !px-9 !py-7">
+              <p className="h-sekcji text-[80px] leading-none whitespace-nowrap">
+                <Licznik do={Number(roznica.toFixed(1))} prefiks="+" /> <span className="text-[38px]">pp</span>
+              </p>
+              <p className="mt-3 text-[24px] leading-snug text-white/90">
+                {pl(WYNIKI.przed)}% → {pl(WYNIKI.po)}% poprawnych odpowiedzi
+              </p>
             </Wej>
-          ))}
-        </div>
+            <Wej i={3} className="karta karta-mgla flex flex-col justify-center !px-9 !py-7">
+              <p className="h-sekcji text-[76px] leading-none whitespace-nowrap text-tusz tabular-nums">
+                {pl(WYNIKI.nauczyciele.ocena, 2)}<span className="text-[36px] text-tusz-3"> / 5</span>
+              </p>
+              <p className="mt-3 text-[24px] leading-snug text-tusz-2">
+                ocena nauczycieli, {WYNIKI.nauczyciele.rekomenduje}% rekomenduje
+              </p>
+            </Wej>
+          </div>
 
-        <Wej i={2} className="karta karta-mgla col-span-7 flex flex-col !p-9">
-          <div className="flex items-baseline justify-between">
-            <h3 className="h-sekcji text-[44px] text-tusz">Cienie Rzeczypospolitej</h3>
-            <span className="text-[26px] text-akcent-ciemny">platforma na kolejne historie</span>
-          </div>
-          <div className="relative mt-6 flex-1 overflow-hidden rounded-2xl border border-obrys bg-white shadow-xl">
-            <Image src="/prezentacja/platforma-landing.webp" alt="Strona główna platformy Cienie Rzeczypospolitej." fill sizes="1100px" className="object-cover object-top" />
-          </div>
-        </Wej>
+          <Wej i={4} className="karta flex min-h-0 flex-1 flex-col !p-9">
+            <p className="h-sekcji text-[38px] leading-tight text-tusz">
+              {procentChcacych !== null ? (
+                <><span className="text-akcent">{procentChcacych}%</span> uczniów stwierdziło, że korzystałoby z aplikacji</>
+              ) : (
+                "Uczniowie stwierdzili, że korzystaliby z naszej aplikacji"
+              )}
+            </p>
+            <ul className="mt-5 flex flex-1 flex-col justify-evenly gap-4">
+              {cytaty.map((c) => (
+                <li key={c} className="rounded-2xl bg-tlo px-7 py-4 text-[26px] leading-snug text-tusz">
+                  „{c}”
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-[22px] text-tusz-3">Pytania otwarte w ankiecie ewaluacyjnej uczniów</p>
+          </Wej>
+        </div>
       </div>
     </Slajd>
   );
 }
 
-/* ------------------------------------------------------------------ 9. technologie */
+/* ------------------------------------------------------------------ 10. technologie */
 
 export function Technologie() {
   const stos = ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "Turbopack", "Unity WebGL", "i18n PL / EN", "MySQL 8", "Docker"];
@@ -425,7 +554,7 @@ export function Technologie() {
             ))}
           </ul>
           <p className="mt-auto pt-4 text-[24px] leading-snug text-tusz-2">
-            Aplikacja webowa — działa w przeglądarce na komputerze i telefonie. Mapa to build Unity WebGL.
+            Aplikacja webowa działa w przeglądarce na komputerze i telefonie. Mapa to build Unity WebGL.
           </p>
         </Wej>
 
@@ -435,7 +564,7 @@ export function Technologie() {
           <dl className="mt-7 space-y-6">
             <div>
               <dt className="text-[30px] font-bold">Claude Code</dt>
-              <dd className="mt-1 text-[26px] leading-snug text-white/85">Pisanie i refaktoryzacja kodu — Next.js, komponenty, panel.</dd>
+              <dd className="mt-1 text-[26px] leading-snug text-white/85">Pisanie i refaktoryzacja kodu: Next.js, komponenty, panel.</dd>
             </div>
             <div>
               <dt className="text-[30px] font-bold">Gemini Nano Banana 2 Pro</dt>
@@ -455,30 +584,62 @@ export function Technologie() {
   );
 }
 
-/* ------------------------------------------------------------------ 10. zakończenie */
+/* ------------------------------------------------------------------ 11. dalsze kroki */
+
+export function DalszeKroki() {
+  const kroki = [
+    { t: "Współpraca z nauczycielami", o: "Testy w kolejnych klasach i dopracowanie lekcji z ich opiniami." },
+    { t: "Współpraca z muzeami i domami kultury", o: "Wspólne historie oparte na ich zbiorach i archiwach." },
+    { t: "Rozbudowa platformy o kolejne lekcje", o: "Ten sam silnik, nowe wydarzenia historyczne." },
+    { t: "Promocja narzędzia", o: "Docieramy z platformą do szkół i instytucji." },
+  ];
+  return (
+    <Slajd>
+      <Tytul etykieta="Dalsze kroki" pod="Od działającego prototypu do narzędzia, z którego korzystają szkoły i instytucje.">
+        Co dalej z platformą.
+      </Tytul>
+      <div className="grid flex-1 grid-cols-4 gap-6">
+        {kroki.map((k, i) => (
+          <Wej key={k.t} i={i + 1} className={`karta flex flex-col justify-between !p-10 ${i === 3 ? "karta-akcent" : i % 2 ? "karta-piasek" : "karta-mgla"}`}>
+            <span className={`font-mono text-[34px] ${i === 3 ? "text-white/70" : "text-tusz-3"}`}>0{i + 1}</span>
+            <div>
+              <h3 className="h-sekcji text-[46px] leading-[1.08]">{k.t}</h3>
+              <p className={`mt-5 text-[28px] leading-snug ${i === 3 ? "text-white/85" : "text-tusz-2"}`}>{k.o}</p>
+            </div>
+          </Wej>
+        ))}
+      </div>
+    </Slajd>
+  );
+}
+
+/* ------------------------------------------------------------------ 12. zakończenie */
 
 export function Zakonczenie() {
   const filary = [
-    ["Innowacja", "Nie czytasz o historii — podejmujesz w niej decyzje."],
-    ["Dowód", "Działający prototyp i pilotaż: +31,5 pp."],
+    ["Innowacja", "Nie czytasz o historii, tylko podejmujesz w niej decyzje."],
+    ["Dowód", `Działający prototyp i pilotaż: +${pl(WYNIKI.po - WYNIKI.przed)} pp.`],
     ["Wpływ", "Uczniowie, nauczyciele, muzea i miejsca pamięci."],
   ];
   return (
     <Slajd>
-      <div className="grid min-h-0 flex-1 grid-cols-[1.35fr_0.65fr] gap-6">
+      <div className="grid min-h-0 flex-1 grid-cols-[1.25fr_0.75fr] gap-6">
         <Wej className="karta flex flex-col justify-between !p-[48px]">
-          <span className="etykieta etykieta-xl self-start">Cisza nad Raszową</span>
+          <div className="flex items-center gap-5">
+            <ZnakPlatformy rozmiar={72} />
+            <span className="etykieta etykieta-xl">Cienie Rzeczypospolitej</span>
+          </div>
           <h2 className="h-sekcji text-[88px] leading-[1.02] text-balance text-tusz">
             Lekcja historii nie musi być nudna.
             <span className="block text-akcent">Ta zostaje w pamięci.</span>
           </h2>
         </Wej>
-        <Wej i={2} className="karta karta-akcent flex flex-col justify-center !px-12">
-          <p className="h-sekcji text-[150px] leading-none">
-            <Licznik do={31.5} prefiks="+" />
-          </p>
-          <p className="mt-3 text-[36px] leading-snug font-semibold">punktu proc. więcej po grze</p>
-          <p className="mt-3 text-[28px] text-white/80">pilotaż, N = 31 uczniów</p>
+
+        <Wej i={2} className="karta karta-mgla flex flex-col items-center justify-center gap-5 !p-8 text-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/prezentacja/qr-landing.svg" alt={`Kod QR do strony ${ADRES_LANDINGU}`} className="h-[330px] w-[330px] rounded-3xl bg-white p-3 shadow-lg" />
+          <p className="text-[28px] text-tusz-2">Zeskanuj i wejdź na platformę</p>
+          <p className="h-sekcji text-[58px] leading-none text-akcent-ciemny">{ADRES_LANDINGU}</p>
         </Wej>
       </div>
 
@@ -500,7 +661,7 @@ export function Zakonczenie() {
             </li>
           ))}
         </ul>
-        <p className="h-sekcji flex items-center gap-4 text-[44px] text-tusz"><Logo rozmiar={64} />Dziękujemy!</p>
+        <p className="h-sekcji text-[44px] text-tusz">Dziękujemy!</p>
       </Wej>
     </Slajd>
   );

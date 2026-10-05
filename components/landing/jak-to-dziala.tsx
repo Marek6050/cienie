@@ -10,7 +10,7 @@ const KROKI = [
   { nr: "01", Ikona: IkonaTeczka, tytul: "Wybierz historię", tresc: "Nauczyciel uruchamia wybrany materiał, np. „Ciszę nad Raszową”.", ton: "biala" },
   { nr: "02", Ikona: IkonaTelefon, tytul: "Udostępnij uczniom", tresc: "Uczniowie otwierają materiał na telefonie lub komputerze. Bez instalacji.", ton: "biala" },
   { nr: "03", Ikona: IkonaZrodlo, tytul: "Poznaj wydarzenia", tresc: "Uczniowie pracują ze źródłami, fotografiami, mapami i relacjami świadków.", ton: "biala" },
-  { nr: "04", Ikona: IkonaRozgalezienie, tytul: "Podejmij decyzję", tresc: "W kluczowych momentach uczniowie wybierają, jak postąpić — i poznają konsekwencje.", ton: "akcent" },
+  { nr: "04", Ikona: IkonaRozgalezienie, tytul: "Podejmij decyzję", tresc: "W kluczowych momentach uczniowie wybierają, jak postąpić, i poznają konsekwencje.", ton: "akcent" },
   { nr: "05", Ikona: IkonaOsoby, tytul: "Porozmawiaj o wyborach", tresc: "Klasa porównuje decyzje i wspólnie analizuje wydarzenia.", ton: "biala" },
 ] as const;
 

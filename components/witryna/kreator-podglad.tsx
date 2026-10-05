@@ -103,7 +103,7 @@ export function KreatorPodglad() {
           className="p-4 sm:p-5"
         >
           <p className="mb-4 font-mono text-[0.75rem] tracking-[0.06em] text-tusz-3 uppercase">
-            {SCENA.sygnatura} — {SCENA.tytul}
+            {SCENA.sygnatura} · {SCENA.tytul}
           </p>
           <dl className="overflow-hidden rounded-xl bg-tlo">
             {DEFINICJA.map((w) => (
@@ -120,7 +120,7 @@ export function KreatorPodglad() {
           </dl>
           <p className="mt-4 text-[0.875rem] leading-relaxed text-tusz-3">
             Tło, postać, dźwięk, kwestia i skutki wyborów to osobne pola.
-            Podmiana ich wszystkich daje inną scenę — i, po kilkudziesięciu
+            Podmiana ich wszystkich daje inną scenę, i, po kilkudziesięciu
             takich, inną grę o innym wydarzeniu.
           </p>
         </div>

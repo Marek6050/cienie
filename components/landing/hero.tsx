@@ -7,7 +7,7 @@ import { SCENA_DEMO as S } from "@/lib/scena-demo";
 
 const KORZYSCI = [
   { Ikona: IkonaZegar, tytul: "45 minut", tresc: "Materiał mieści się w jednej lekcji." },
-  { Ikona: IkonaTelefon, tytul: "Bez instalacji", tresc: "Telefon lub komputer — wystarczy przeglądarka." },
+  { Ikona: IkonaTelefon, tytul: "Bez instalacji", tresc: "Telefon lub komputer, wystarczy przeglądarka." },
   { Ikona: IkonaNotatka, tytul: "Gotowe do użycia", tresc: "Materiały i przebieg lekcji są przygotowane." },
   { Ikona: IkonaZrodlo, tytul: "Oparte na źródłach", tresc: "Fakt, rekonstrukcja i narracja są rozdzielone." },
 ];
@@ -26,7 +26,7 @@ export function Hero() {
               <strong className="font-semibold text-tusz">Cienie Rzeczypospolitej</strong>{" "}
               to lekcje historii oparte na źródłach i prawdziwych wydarzeniach.
               Uczeń analizuje sytuację, podejmuje decyzje i poznaje ich
-              konsekwencje — nauczyciel dostaje gotowy materiał na 45 minut.
+              konsekwencje, nauczyciel dostaje gotowy materiał na 45 minut.
             </p>
           </div>
 

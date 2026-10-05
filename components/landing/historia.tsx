@@ -22,9 +22,9 @@ const KADRY = [
   {
     etykieta: "Wybór",
     tytul: "Podejmuj decyzje",
-    opis: "W kluczowych momentach uczeń decyduje, jak postąpić — i ponosi tego konsekwencje.",
+    opis: "W kluczowych momentach uczeń decyduje, jak postąpić, i ponosi tego konsekwencje.",
     obraz: "/archiwum/zima.webp",
-    alt: "Zimowa droga — sceneria, w której zapadają decyzje gracza.",
+    alt: "Zimowa droga: sceneria, w której zapadają decyzje gracza.",
     pozycja: "object-center",
   },
   {
@@ -32,7 +32,7 @@ const KADRY = [
     tytul: "Pracuj ze źródłami",
     opis: "Dokumenty, fotografie i relacje świadków dostępne w trakcie sceny, z oznaczonym statusem.",
     obraz: "/archiwum/konferencja-jaltanska.webp",
-    alt: "Fotografia z konferencji jałtańskiej — materiał źródłowy w grze.",
+    alt: "Fotografia z konferencji jałtańskiej: materiał źródłowy w grze.",
     pozycja: "object-center",
   },
   {
@@ -40,7 +40,7 @@ const KADRY = [
     tytul: "Odkrywaj miejsca",
     opis: "Interaktywna mapa regionu pokazuje, gdzie rozgrywały się kolejne wydarzenia.",
     obraz: "/archiwum/raszowa.webp",
-    alt: "Raszowa — jedno z miejsc na mapie opowieści.",
+    alt: "Raszowa: jedno z miejsc na mapie opowieści.",
     pozycja: "object-center",
   },
 ];
@@ -61,7 +61,7 @@ export function Historia() {
             nazwa="historia-okladka"
             nr="05"
             proporcje="16:10"
-            alt="Zimowa droga pod Raszową w 1945 roku — kobieta z dzieckiem i sylwetki żołnierzy w oddali."
+            alt="Zimowa droga pod Raszową w 1945 roku: kobieta z dzieckiem i sylwetki żołnierzy w oddali."
             sizes="(max-width: 1024px) 100vw, 780px"
           />
           <div className="absolute inset-x-3 bottom-3 rounded-2xl bg-white/95 p-5 shadow-xl backdrop-blur sm:inset-x-5 sm:bottom-5 sm:p-6">
@@ -116,7 +116,7 @@ export function Historia() {
         <Karta span="lg:col-span-12" bezWciecia className="min-h-[22rem] sm:min-h-[28rem]">
           <Image
             src="/archiwum/pomnik-bytom.webp"
-            alt="Fragment pomnika Tragedii Górnośląskiej w Bytomiu — rzeźbiona grupa postaci z uniesionymi ramionami."
+            alt="Fragment pomnika Tragedii Górnośląskiej w Bytomiu: rzeźbiona grupa postaci z uniesionymi ramionami."
             fill
             sizes="(max-width: 1200px) 100vw, 1200px"
             className="object-cover object-center grayscale"

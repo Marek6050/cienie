@@ -7,7 +7,7 @@ export const FAQ_GLOWNE: PytanieFaq[] = [
   {
     pytanie: "Czy trzeba coś instalować?",
     odpowiedz:
-      "Nie. Historia działa w przeglądarce — na telefonie ucznia albo na komputerze w pracowni. Nie potrzeba aplikacji ani dodatkowego oprogramowania.",
+      "Nie. Historia działa w przeglądarce, na telefonie ucznia albo na komputerze w pracowni. Nie potrzeba aplikacji ani dodatkowego oprogramowania.",
   },
   {
     pytanie: "Ile trwa jedna lekcja?",
@@ -22,7 +22,7 @@ export const FAQ_GLOWNE: PytanieFaq[] = [
   {
     pytanie: "Skąd wiemy, że treści są wiarygodne?",
     odpowiedz:
-      "Każda historia zaczyna się od kwerendy źródeł, nie od scenariusza. W grze każdy element ma oznaczony status: fakt, rekonstrukcja albo dramatyzacja — uczeń widzi, gdzie kończy się źródło, a zaczyna narracja.",
+      "Każda historia zaczyna się od kwerendy źródeł, nie od scenariusza. W grze każdy element ma oznaczony status: fakt, rekonstrukcja albo dramatyzacja. Uczeń widzi, gdzie kończy się źródło, a zaczyna narracja.",
   },
   {
     pytanie: "Czy uczniowie muszą zakładać konta?",
@@ -31,18 +31,18 @@ export const FAQ_GLOWNE: PytanieFaq[] = [
   },
   {
     pytanie: "Czy materiał jest dostępny po angielsku?",
-    odpowiedz: "Tak — „Cisza nad Raszową” ma wersję polską i angielską.",
+    odpowiedz: "Tak, „Cisza nad Raszową” ma wersję polską i angielską.",
   },
   {
     pytanie: "Ile to kosztuje?",
     odpowiedz:
-      "Cennik i licencjonowanie nie są jeszcze ostatecznie ustalone. Zakres, termin i warunki ustalamy indywidualnie — napisz do nas, a odpowiemy konkretnie.",
+      "Cennik i licencjonowanie nie są jeszcze ostatecznie ustalone. Zakres, termin i warunki ustalamy indywidualnie. Napisz do nas, a odpowiemy konkretnie.",
   },
   {
     pytanie: "Czy możecie zrobić taką historię o naszym wydarzeniu?",
     odpowiedz: (
       <>
-        Tak, na tym samym silniku budujemy opowieści o innych wydarzeniach —
+        Tak, na tym samym silniku budujemy opowieści o innych wydarzeniach,
         na podstawie Waszych źródeł, zbiorów i relacji. Szczegóły dla muzeów,
         domów kultury i miejsc pamięci znajdziesz na stronie{" "}
         <a href="/dla-instytucji" className="font-semibold text-akcent underline underline-offset-4">
@@ -71,7 +71,7 @@ export function SekcjaFaq({
             <span className="etykieta !bg-white/70">FAQ</span>
             <h2 className="h-sekcji mt-6 text-[clamp(1.875rem,3.2vw,2.5rem)] text-tusz">{tytul}</h2>
             <p className="mt-4 text-[0.9375rem] leading-relaxed text-tusz-2">
-              Nie ma tu Twojego pytania? Napisz — odpowiada zespół, nie automat.
+              Nie ma tu Twojego pytania? Napisz. Odpowiada zespół, nie automat.
             </p>
           </div>
           <a href={`mailto:${KONTAKT.mail}`} className="przycisk self-start">

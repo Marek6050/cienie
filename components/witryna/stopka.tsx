@@ -13,7 +13,7 @@ export function Stopka() {
               Cienie Rzeczypospolitej
             </p>
             <p className="mt-3 max-w-[38ch] text-[0.9375rem] leading-relaxed text-tusz-2">
-              Interaktywne opowieści historyczne oparte na źródłach — dla szkół
+              Interaktywne opowieści historyczne oparte na źródłach, dla szkół
               i instytucji pamięci.
             </p>
           </div>

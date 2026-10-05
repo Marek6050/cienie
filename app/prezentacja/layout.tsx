@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next";
 export const metadata: Metadata = {
   title: "Prezentacja finałowa",
   description:
-    "Prezentacja finałowa projektu „Cisza nad Raszową” — Akademia STEM 2026.",
+    "Prezentacja finałowa projektu „Cisza nad Raszową”, Akademia STEM 2026.",
 };
 
 export const viewport: Viewport = {

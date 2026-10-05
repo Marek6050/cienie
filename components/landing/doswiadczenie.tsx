@@ -30,7 +30,7 @@ export function Doswiadczenie() {
         tytul="Historia nie musi być kolejną prezentacją."
         lead={
           <>
-            Na tradycyjnej lekcji uczeń często pozostaje odbiorcą — słucha,
+            Na tradycyjnej lekcji uczeń często pozostaje odbiorcą, słucha,
             czyta i zapamiętuje.{" "}
             <span className="font-semibold text-tusz">Tutaj staje się uczestnikiem wydarzeń.</span>{" "}
             Analizuje sytuację, podejmuje decyzje i sprawdza ich konsekwencje.
@@ -112,7 +112,7 @@ export function Doswiadczenie() {
             <div>
               <p className="font-mono text-[0.6875rem] tracking-[0.12em] text-[#b9adff] uppercase">Uczeń zaczyna pytać</p>
               <p className="h-karty mt-3 text-[1.375rem] text-white sm:text-[1.75rem]">
-                „Co ja zrobiłbym w tej sytuacji — i dlaczego?”
+                „Co ja zrobiłbym w tej sytuacji, i dlaczego?”
               </p>
             </div>
           </div>

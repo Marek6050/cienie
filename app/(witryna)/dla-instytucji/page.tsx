@@ -12,7 +12,7 @@ import { KONTAKT } from "@/lib/kontakt";
 export const metadata: Metadata = {
   title: "Dla muzeów, domów kultury i miejsc pamięci",
   description:
-    "Interaktywne opowieści historyczne zbudowane na Waszych zbiorach, archiwach i relacjach świadków — dla muzeów, domów kultury, pomników i miejsc pamięci.",
+    "Interaktywne opowieści historyczne zbudowane na Waszych zbiorach, archiwach i relacjach świadków, dla muzeów, domów kultury, pomników i miejsc pamięci.",
 };
 
 const ADRESACI = [
@@ -21,7 +21,7 @@ const ADRESACI = [
     etykieta: "Muzea",
     tytul: "Nowa warstwa narracji wokół wystawy",
     tresc:
-      "Zwiedzający nie tylko ogląda obiekt — przechodzi przez historię, która za nim stoi, i podejmuje decyzje osadzone w kontekście jego powstania.",
+      "Zwiedzający nie tylko ogląda obiekt, ale przechodzi przez historię, która za nim stoi, i podejmuje decyzje osadzone w kontekście jego powstania.",
     punkty: ["opowieść oparta na zbiorach i dokumentach", "program edukacyjny dla grup szkolnych", "dopasowanie do konkretnej wystawy"],
     grafika: { nazwa: "instytucje-muzeum", nr: "08", alt: "Zwiedzający muzeum z telefonem przy gablocie z archiwalnymi dokumentami." },
   },
@@ -30,16 +30,16 @@ const ADRESACI = [
     etykieta: "Domy kultury",
     tytul: "Lokalna historia opowiedziana z mieszkańcami",
     tresc:
-      "Wydarzenia związane z konkretnym miejscem i społecznością, zbudowane z relacji świadków i lokalnych archiwów — do wspólnej pracy, nie tylko do oglądania.",
+      "Wydarzenia związane z konkretnym miejscem i społecznością, zbudowane z relacji świadków i lokalnych archiwów, do wspólnej pracy, nie tylko do oglądania.",
     punkty: ["historie regionu i społeczności", "warsztaty i projekty z mieszkańcami", "cykle wydarzeń i rocznice"],
-    grafika: { nazwa: "instytucje-dom-kultury", nr: "09", alt: "Warsztaty w domu kultury — grupa mieszkańców przy stole z fotografiami i laptopem." },
+    grafika: { nazwa: "instytucje-dom-kultury", nr: "09", alt: "Warsztaty w domu kultury: grupa mieszkańców przy stole z fotografiami i laptopem." },
   },
   {
     id: "miejsca-pamieci",
     etykieta: "Pomniki i miejsca pamięci",
     tytul: "Opowieść, którą zwiedzający zabiera ze sobą",
     tresc:
-      "Pomnik pokazuje, że coś się wydarzyło. Interaktywna historia pomaga zrozumieć, co i dlaczego — na miejscu, na telefonie, we własnym tempie.",
+      "Pomnik pokazuje, że coś się wydarzyło. Interaktywna historia pomaga zrozumieć, co i dlaczego: na miejscu, na telefonie, we własnym tempie.",
     punkty: ["dostęp przez przeglądarkę, bez aplikacji", "obchody, rocznice i lekcje w terenie", "treść oparta na źródłach, nie na domysłach"],
     grafika: { nazwa: "instytucje-pomnik", nr: "10", alt: "Osoba przy pomniku patrząca w ekran telefonu z historyczną opowieścią o tym miejscu." },
   },
@@ -53,21 +53,21 @@ const MATERIAL = [
 
 const ETAPY = [
   { nr: "01", tytul: "Rozmowa", tresc: "Poznajemy Wasz cel: wystawę, program edukacyjny albo wydarzenie." },
-  { nr: "02", tytul: "Kwerenda", tresc: "Zbieramy i porządkujemy źródła — Wasze zbiory i dostępne opracowania." },
+  { nr: "02", tytul: "Kwerenda", tresc: "Zbieramy i porządkujemy źródła: Wasze zbiory i dostępne opracowania." },
   { nr: "03", tytul: "Scenariusz", tresc: "Weryfikujemy fakty i budujemy narrację ze statusem każdej treści." },
-  { nr: "04", tytul: "Wdrożenie", tresc: "Dodajemy grafikę, dźwięk, mapy i wybory — opowieść działa w przeglądarce." },
+  { nr: "04", tytul: "Wdrożenie", tresc: "Dodajemy grafikę, dźwięk, mapy i wybory: opowieść działa w przeglądarce." },
 ];
 
 const FAQ_INSTYTUCJE: PytanieFaq[] = [
   {
     pytanie: "Od czego zaczynamy współpracę?",
     odpowiedz:
-      "Od rozmowy o tym, co chcecie opowiedzieć i komu. Potem przechodzimy do źródeł: to, co już macie — zbiory, archiwa, relacje — jest punktem wyjścia, nie technologia.",
+      "Od rozmowy o tym, co chcecie opowiedzieć i komu. Potem przechodzimy do źródeł: to, co już macie (zbiory, archiwa, relacje), jest punktem wyjścia, nie technologia.",
   },
   {
     pytanie: "Czy musimy mieć gotowe materiały?",
     odpowiedz:
-      "Nie muszą być uporządkowane. Pomagamy je przejrzeć i zweryfikować w ramach kwerendy. Ważne, żeby wydarzenie miało pokrycie w źródłach — nie wymyślamy faktów.",
+      "Nie muszą być uporządkowane. Pomagamy je przejrzeć i zweryfikować w ramach kwerendy. Ważne, żeby wydarzenie miało pokrycie w źródłach. Nie wymyślamy faktów.",
   },
   {
     pytanie: "Czy odbiorca musi instalować aplikację?",
@@ -77,12 +77,12 @@ const FAQ_INSTYTUCJE: PytanieFaq[] = [
   {
     pytanie: "Ile to kosztuje i ile trwa?",
     odpowiedz:
-      "Zakres, termin i warunki ustalamy indywidualnie — nie mamy cennika z półki i nie udajemy, że mamy. Napisz, a wspólnie ocenimy, co jest potrzebne.",
+      "Zakres, termin i warunki ustalamy indywidualnie. Nie mamy cennika z półki i nie udajemy, że mamy. Napisz, a wspólnie ocenimy, co jest potrzebne.",
   },
   {
     pytanie: "Kto odpowiada za treść historyczną?",
     odpowiedz:
-      "Treść powstaje we współpracy z Wami — kuratorami i edukatorami. Każdy element ma oznaczony status: fakt, rekonstrukcja albo dramatyzacja, a uwagi merytoryczne zawsze można zgłosić.",
+      "Treść powstaje we współpracy z Wami, kuratorami i edukatorami. Każdy element ma oznaczony status: fakt, rekonstrukcja albo dramatyzacja, a uwagi merytoryczne zawsze można zgłosić.",
   },
 ];
 
@@ -170,7 +170,7 @@ export default function DlaInstytucji() {
         <NaglowekSekcji
           etykieta="Kreator"
           tytul="Wasze źródła. Nasza metodologia. Interaktywna narracja."
-          lead="Jedna scena, dwa widoki: tak widzi ją odbiorca i tak wygląda w kreatorze. Podmień tło, postać, dźwięk i skutki wyborów — dostajesz inną scenę, a po kilkudziesięciu takich, inną opowieść."
+          lead="Jedna scena, dwa widoki: tak widzi ją odbiorca i tak wygląda w kreatorze. Podmień tło, postać, dźwięk i skutki wyborów: dostajesz inną scenę, a po kilkudziesięciu takich, inną opowieść."
         />
         <Siatka>
           <Karta span="lg:col-span-7" className="p-3 sm:p-3">

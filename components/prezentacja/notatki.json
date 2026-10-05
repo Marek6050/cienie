@@ -1,0 +1,124 @@
+[
+  {
+    "kto": "Marek",
+    "czas": "0:00–0:12",
+    "kryterium": "Prezentacja i zespół, pierwsze wrażenie",
+    "punkty": [
+      "Pytanie do sali: kto pamięta lekcję historii sprzed tygodnia?",
+      "Hasło: „Lekcja historii nie musi być nudna.” To ma zostać w głowie jury.",
+      "Jedno zdanie: Cienie Rzeczypospolitej to platforma interaktywnych lekcji historii."
+    ]
+  },
+  {
+    "kto": "Marek (przedstawia wszystkich)",
+    "czas": "0:12–0:24",
+    "kryterium": "Prezentacja i praca zespołowa",
+    "punkty": [
+      "Cały zespół stoi na scenie. Każdy i jego rola jednym zdaniem.",
+      "Ustalcie, kto trzyma który mikrofon (są 2–3)."
+    ]
+  },
+  {
+    "kto": "Łukasz",
+    "czas": "0:24–0:38",
+    "kryterium": "Wpływ społeczny",
+    "punkty": [
+      "Trzy problemy: brak wiedzy o lokalnej historii, nudna forma, długie przygotowanie nauczyciela.",
+      "Zapowiedz liczbę 53,4%: wróci na slajdzie z danymi."
+    ]
+  },
+  {
+    "kto": "Marcin",
+    "czas": "0:38–0:55",
+    "kryterium": "Wpływ społeczny, jasny beneficjent",
+    "punkty": [
+      "Trzy perspektywy: nauczyciel (kluczowy odbiorca), uczeń (użytkownik), muzeum (partner treści).",
+      "Zakończ zdaniem ze slajdu: narzędzie, doświadczenie, nowy sposób opowiadania."
+    ]
+  },
+  {
+    "kto": "Łukasz",
+    "czas": "0:55–1:08",
+    "kryterium": "Innowacyjność, wpływ społeczny (research i źródła)",
+    "punkty": [
+      "Cel główny: z biernego odbierania na aktywne uczestniczenie.",
+      "Wymień cztery cele szczegółowe jednym tchem, bez czytania."
+    ]
+  },
+  {
+    "kto": "Michał",
+    "czas": "1:08–1:25",
+    "kryterium": "Wykonalność, wykorzystanie technologii",
+    "punkty": [
+      "To, co zrobiliśmy: landing page (605060.xyz), gra, mapa, oś czasu.",
+      "Pierwsza lekcja na platformie to Cisza nad Raszową. Zrzuty są z działającego prototypu."
+    ]
+  },
+  {
+    "kto": "Jakub",
+    "czas": "1:25–1:35",
+    "kryterium": "Wykonalność, wpływ",
+    "punkty": [
+      "Nie tylko gra: scenariusz 45 min, test 30 pytań, ankieta, panel nauczyciela (Jakub przygotował materiały).",
+      "Zaznacz, że dane w panelu na slajdzie są przykładowe."
+    ]
+  },
+  {
+    "kto": "Michał, cała sala",
+    "czas": "1:35–1:58",
+    "kryterium": "Prezentacja, zapamiętywalność",
+    "punkty": [
+      "Jury podnosi rękę: 1, 2 albo 3. Wciśnij klawisz 1/2/3 i pokaż odpowiedź gry.",
+      "Puenta: tak samo wybiera każdy uczeń i od razu widzi konsekwencje.",
+      "Maksymalnie 23 sekundy."
+    ]
+  },
+  {
+    "kto": "Michał",
+    "czas": "w ramach slajdu 8",
+    "kryterium": "Prezentacja, zapamiętywalność (tylko w pliku PPTX)",
+    "punkty": [
+      "Slajd z odpowiedziami gry: wskaż tę, którą wybrało jury, i przeczytaj odpowiedź Koniewa.",
+      "Puenta: każdy uczeń staje przed takim wyborem i od razu widzi konsekwencje.",
+      "Potem przejdź dalej do danych."
+    ],
+    "tylkoEksport": true
+  },
+  {
+    "kto": "Marek",
+    "czas": "1:58–2:25",
+    "kryterium": "Wykonalność, wpływ społeczny",
+    "punkty": [
+      "Metoda: ten sam test przed i po. N = 31. Powiedz uczciwie, że to pilotaż.",
+      "Wynik: 53,4% → 84,9%, czyli +31,5 punktu procentowego. Nauczyciele: 4,85/5.",
+      "Uczniowie stwierdzili, że korzystaliby z aplikacji. Przeczytaj jeden cytat."
+    ]
+  },
+  {
+    "kto": "Jakub",
+    "czas": "2:25–2:42",
+    "kryterium": "Wykorzystanie technologii / AI",
+    "punkty": [
+      "Rozdziel: AI (Claude Code do kodu, Gemini Nano Banana 2 Pro do grafik) i nasza praca.",
+      "Stos: Next.js 16, React 19, Unity WebGL dla mapy. Ta prezentacja jest stroną z platformy."
+    ]
+  },
+  {
+    "kto": "Marcin",
+    "czas": "2:42–2:52",
+    "kryterium": "Wykonalność, wpływ",
+    "punkty": [
+      "Cztery kroki: nauczyciele, muzea i domy kultury, kolejne lekcje, promocja.",
+      "Mów tylko to, co jest prawdą o kontaktach z muzeami."
+    ]
+  },
+  {
+    "kto": "Marek, cały zespół",
+    "czas": "2:52–3:00",
+    "kryterium": "Zakończenie, to zapamiętają",
+    "punkty": [
+      "Wróć do hasła: „Lekcja historii nie musi być nudna. Ta zostaje w pamięci.”",
+      "Pokaż kod QR i adres 605060.xyz. Zaproś jury do pytań (5 minut)."
+    ]
+  }
+]

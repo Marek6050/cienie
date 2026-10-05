@@ -38,7 +38,7 @@ export function ZdjecieOsoby({
       style={{ width: rozmiar, height: rozmiar }}
     >
       {src ? (
-        <Image src={src} alt={`Zdjęcie: ${imie}`} fill sizes={`${rozmiar}px`} className="object-cover" />
+        <Image src={src} alt={`Zdjęcie: ${imie}`} fill sizes={`${rozmiar}px`} className="object-cover object-[50%_22%]" />
       ) : (
         <div
           role="img"

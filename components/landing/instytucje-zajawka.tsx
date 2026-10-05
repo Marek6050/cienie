@@ -22,7 +22,7 @@ export function InstytucjeZajawka() {
             </h2>
             <p className="mt-5 max-w-[44ch] text-[1rem] leading-[1.7] text-white/75">
               Na tym samym silniku budujemy opowieści dla muzeów, domów kultury
-              i miejsc pamięci — na podstawie Waszych zbiorów, archiwów i relacji.
+              i miejsc pamięci, na podstawie Waszych zbiorów, archiwów i relacji.
             </p>
           </div>
           <Link href="/dla-instytucji" className="przycisk przycisk-bialy self-start">

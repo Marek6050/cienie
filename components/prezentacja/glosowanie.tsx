@@ -2,40 +2,14 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { WYBORY_JURY as WYBORY } from "./dane";
 
 /**
  * Prawdziwa decyzja z gry (scena 1, „Rozkaz Koniewa”). Jury podnosi rękę,
  * prowadzący wciska 1/2/3 (albo klika) i pokazuje, jak odpowiada gra.
  * Teksty są wzięte 1:1 z kodu sceny.
  */
-const WYBORY = [
-  {
-    nr: 1,
-    tekst: "„Tak jest, towarzyszu.”",
-    odpowiedz: [
-      "Dobrze. Wierność i dyscyplina to cnota w tych czasach.",
-      "Pamiętaj, że rozkaz jest ważniejszy niż pytania.",
-    ],
-  },
-  {
-    nr: 2,
-    tekst: "„A co z cywilami?”",
-    odpowiedz: [
-      "(Generał marszczy brwi, głos staje się chłodny)",
-      "Cywile… ich los jest przesądzony.",
-      "Na wojnie nie ma litości.",
-    ],
-  },
-  {
-    nr: 3,
-    tekst: "„…”",
-    odpowiedz: [
-      "(Generał patrzy na gracza długo, badając milczenie)",
-      "Milczysz — to dobrze.",
-      "Żołnierz, który nie zadaje pytań to dobry żołnierz.",
-    ],
-  },
-] as const;
+
 
 export function GlosowanieJury() {
   const [wybor, setWybor] = useState<number | null>(null);
@@ -123,7 +97,7 @@ export function GlosowanieJury() {
             </>
           ) : (
             <p className="text-[30px] leading-snug text-tusz-2">
-              W grze każdy uczeń staje przed takim wyborem — a potem widzi, co z niego wynika.
+              W grze każdy uczeń staje przed takim wyborem, a potem widzi, co z niego wynika.
             </p>
           )}
         </div>
