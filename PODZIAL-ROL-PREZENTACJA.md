@@ -26,11 +26,13 @@ Numeracja jak w PPTX (13 slajdów). Na stronie slajd „odpowiedzi gry” nie is
 Cel: zapamiętają hasło „Lekcja historii nie musi być nudna.” Zrób pauzę po pytaniu do sali.
 
 **Slajd 2, zespół (0:12–0:24)**
-> Jesteśmy pięcioosobowym zespołem. Michał i ja odpowiadamy za stronę techniczną, Łukasz i Marcin za research historyczny, a Jakub za oprawę graficzną i materiały. Wszyscy stoimy tu dziś razem.
+> Jesteśmy pięcioosobowym zespołem. Michał i ja odpowiadamy za stronę techniczną, Łukasz za research historyczny i redakcję tekstów, Jakub za oprawę graficzną i materiały audiowizualne, a Marcin za research oraz kontakt z muzeami i nauczycielami. Wszyscy stoimy tu dziś razem.
 
 Wskaż każdą osobę na slajdzie. Tu ustalcie, kto trzyma który mikrofon (są 2–3).
 
 **Slajd 10, twarde dane (1:58–2:25)**
+wynik poprawnych odpowiedzi po teście wzrósł 
+
 > Sprawdziliśmy, czy to działa. W pilotażu wzięło udział 31 uczniów. Rozwiązywali ten sam test po zwykłym wykładzie i po lekcji z naszą platformą. Wynik wzrósł z 53,4 do 84,9 procent, czyli o 31,5 punktu procentowego. Nauczyciele ocenili narzędzie na 4,85 na 5. A 98 procent uczniów stwierdziło, że korzystałoby z aplikacji. Jeden z nich napisał: „Wreszcie lekcja, która wciąga od pierwszej minuty”.
 
 Powiedz uczciwie, że to **pilotaż**. Nie mów „+31,5%”, tylko „punktu procentowego”.
@@ -42,7 +44,7 @@ Cały zespół robi krok do przodu, kod QR jest na slajdzie. Skończ na tym zdan
 
 ---
 
-## Łukasz Gucwiński (researcher historyczny)
+## Łukasz Gucwiński (research historyczny i redakcja tekstów)
 
 **Slajd 3, źródło problemu (0:24–0:38)**
 > Zaczęło się od trzech problemów. Po pierwsze, uczniowie niewiele wiedzą o lokalnych tragediach, na przykład o deportacjach z Górnego Śląska w 1945 roku. Po drugie, lekcja to wykład i podręcznik, uczeń tylko słucha. W naszym pilotażu odpowiedział poprawnie zaledwie na 53,4 procent pytań. Po trzecie, nauczyciel poświęca bardzo dużo czasu na przygotowanie takiej lekcji.
@@ -50,13 +52,14 @@ Cały zespół robi krok do przodu, kod QR jest na slajdzie. Skończ na tym zdan
 Zapowiedz liczbę 53,4%: wróci na slajdzie z danymi.
 
 **Slajd 5, cel projektu (0:55–1:08)**
-> Nasz cel to zmiana: z biernego odbierania informacji na aktywne uczestniczenie w historii. Chcemy zwiększyć zaangażowanie uczniów, rozwijać krytyczne myślenie i pracę ze źródłami, pokazać historię z perspektywy człowieka i jego decyzji oraz skrócić nauczycielowi przygotowanie do lekcji. W grze zawsze widać, co jest faktem, co rekonstrukcją, a co dramatyzacją.
+CELEM platformy
+> Nasz cel to zmiana: z biernego odbierania informacji na aktywne uczestniczenie w historii. Chcemy zwiększyć zaangażowanie uczniów, rozwijać krytyczne myślenie i pracę ze źródłami, pokazać historię z perspektywy człowieka i jego decyzji, skrócić nauczycielowi przygotowanie do lekcji oraz stale zbierać feedback i ulepszać projekt.
 
-Cztery cele szczegółowe wymień jednym tchem, nie czytaj całych zdań ze slajdu.
+Cele szczegółowe wymień sprawnie, nie czytaj całych zdań ze slajdu.
 
 ---
 
-## Marcin Kacperczyk (research i kontakt z muzeami)
+## Marcin Kacperczyk (research historyczny i kontakt z muzeami oraz nauczycielami)
 
 **Slajd 4, grupa docelowa (0:38–0:55)**
 > Dlatego zbudowaliśmy jedną platformę dla trzech grup. Kluczowy odbiorca to nauczyciel, który dostaje gotowe narzędzie. Uczeń korzysta bezpośrednio i uczy się przez decyzje, a nie przez słuchanie. Muzea i instytucje mogą na tej platformie opowiadać własną historię. Nauczyciel dostaje narzędzie, uczeń doświadczenie, a instytucja nowy sposób opowiadania historii.
@@ -64,9 +67,8 @@ Cztery cele szczegółowe wymień jednym tchem, nie czytaj całych zdań ze slaj
 Ostatnie zdanie to puenta slajdu, powiedz je wolno.
 
 **Slajd 12, dalsze kroki (2:42–2:52)**
-> Co dalej? Chcemy współpracować z nauczycielami i z muzeami oraz domami kultury, dodawać kolejne lekcje na tej samej platformie i promować narzędzie w szkołach.
 
-Mów tylko to, co jest prawdą o kontaktach z muzeami: nie ma jeszcze potwierdzonego partnera, więc „chcemy”, nie „współpracujemy”.
+> Co dalej? Rozwijamy współpracę ze szkołami, nawiązaliśmy partnerstwo merytoryczne z Domem Współpracy Polsko-Niemieckiej oraz technologiczne z Fundacją Generacja Innowacja, a także planujemy kolejne lekcje na platformie.
 
 ---
 
@@ -77,24 +79,25 @@ Mów tylko to, co jest prawdą o kontaktach z muzeami: nie ma jeszcze potwierdzo
 
 Pokaż na slajdzie kolejno: landing, wybory, mapę, oś czasu.
 
-**Slajd 8 (i 9), decyzja jury (1:35–1:58)**
-> Teraz Wy jesteście graczem. Jesteście zwiadowcą, a marszałek Koniew rozkazuje: oczyśćcie teren, bez pytań, bez wahania. Proszę podnieść rękę: jedynka, „Tak jest, towarzyszu”. Dwójka, „A co z cywilami?”. Trójka, milczenie.
+**Slajd 8 (i 9), przykładowa scena z gry (1:35–1:58)**
+> Pokażmy, jak wygląda rozgrywka w praktyce. Jesteście zwiadowcą w bunkrze pod Gogolinem, a marszałek Koniew rozkazuje: oczyśćcie teren, bez pytań, bez wahania. Na ekranie widzimy trzy możliwe opcje: jedynka – „Tak jest, towarzyszu”, dwójka – „A co z cywilami?”, trójka – milczenie.
 
-Zlicz ręce, wciśnij na stronie klawisz 1, 2 albo 3 (w PPTX przejdź na slajd 9 i wskaż odpowiedź).
+Kliknij lub wciśnij klawisz 1, 2 albo 3, aby pokazać reakcję gry (w PPTX przejdź na slajd 9).
 
-> Tak odpowiada gra. Dokładnie przed takim wyborem staje każdy uczeń i od razu widzi, co z niego wynika.
+> Tak odpowiada gra. W ten sposób uczeń staje przed realnym dylematem moralnym i od razu widzi konsekwencje swoich decyzji.
 
-Maksymalnie 23 sekundy. Nie komentuj wyboru jury.
+Maksymalnie 23 sekundy.
 
 ---
 
-## Jakub Witnik (oprawa graficzna i materiały)
+## Jakub Witnik (oprawa graficzna i materiały audiowizualne)
 
 **Slajd 7, materiały dla nauczyciela (1:25–1:35)**
 > Dla nauczyciela przygotowaliśmy gotowe materiały: scenariusz lekcji na 45 minut, test wiedzy i ankietę. W panelu widzi na bieżąco, kto z uczniów ile scen ukończył. Dane na slajdzie są przykładowe.
 
 **Slajd 11, technologie (2:25–2:42)**
-> Aplikacja jest zbudowana w Next.js 16 i React 19, a mapa działa na Unity WebGL. Kod pisaliśmy z pomocą Claude Code, a grafiki na stronę wygenerowaliśmy w Gemini Nano Banana 2 Pro. AI przyspiesza pracę, ale źródła, scenariusz i decyzje są nasze. Ta prezentacja też jest stroną z naszej platformy.
+
+> Aplikacja jest zbudowana w Next.js i React, działająca w przeglądarce na komputerach i telefonach. Kod pisaliśmy z pomocą Claude Code, a grafiki generowaliśmy w Gemini. AI przyspiesza pracę, ale źródła, scenariusz i decyzje są nasze. 
 
 To jest kryterium „technologia / AI”: wyraźnie rozdziel, co robi narzędzie, a co człowiek.
 
@@ -132,7 +135,7 @@ Jury ocenia też odpowiedzi na pytania. Odpowiada ta osoba, której temat dotycz
 | Skąd wiecie, że treści są wiarygodne? | Łukasz | Zaczynamy od kwerendy źródeł, nie od scenariusza. W grze każdy element ma status: fakt, rekonstrukcja albo dramatyzacja. Treści historyczne pochodzą ze źródeł, nie z AI. |
 | Dlaczego gracz jest po stronie Armii Czerwonej? Czy to nie usprawiedliwia sprawców? | Łukasz | Gra stawia ucznia w roli, w której musi wybierać między rozkazem a sumieniem i pokazuje konsekwencje, nie ocenia za niego. Temat jest ciężki, dlatego podajemy go bez efekciarstwa. |
 | Co robi AI, a co robicie sami? | Jakub | AI: Claude Code pomagał pisać kod, Gemini Nano Banana 2 Pro generował grafiki na stronę. Nasza praca: research źródeł, scenariusz i dylematy, architektura platformy, testy z uczniami. |
-| Czy to działa na telefonie, trzeba coś instalować? | Michał | Działa w przeglądarce na komputerze i telefonie, bez instalacji. Mapa to build Unity WebGL. |
+| Czy to działa na telefonie, trzeba coś instalować? | Michał | Działa w przeglądarce na komputerze i telefonie, bez konieczności instalacji. |
 | Jak wdrożyć to w szkole? Ile kosztuje? | Marcin | Nauczyciel dostaje gotowy scenariusz 45 minut, test i panel. Cennik i licencjonowanie nie są jeszcze ustalone, więc nie podajemy kwot. |
 | Czy to się skaluje na inne wydarzenia? | Michał | Tak, to platforma: ten sam silnik scen, dialogów i słownika. Kolejne lekcje to nowe wydarzenia, także we współpracy z muzeami i domami kultury. |
 | Kto w zespole co zrobił? | Marek | Odsyła do slajdu 2: dwie osoby techniczne, dwie od researchu historycznego, jedna od oprawy graficznej i materiałów. |

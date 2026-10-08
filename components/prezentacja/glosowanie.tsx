@@ -5,11 +5,9 @@ import { useEffect, useState } from "react";
 import { WYBORY_JURY as WYBORY } from "./dane";
 
 /**
- * Prawdziwa decyzja z gry (scena 1, „Rozkaz Koniewa”). Jury podnosi rękę,
- * prowadzący wciska 1/2/3 (albo klika) i pokazuje, jak odpowiada gra.
- * Teksty są wzięte 1:1 z kodu sceny.
+ * Przykładowa scena z gry (scena 1, „Rozkaz Koniewa”).
+ * Pokazuje mechanikę dylematów i odpowiedzi w grze. Teksty 1:1 z kodu sceny.
  */
-
 
 export function GlosowanieJury() {
   const [wybor, setWybor] = useState<number | null>(null);
@@ -48,8 +46,8 @@ export function GlosowanieJury() {
 
       <div className="col-span-7 flex flex-col gap-4">
         <div className="wej flex items-center justify-between" style={{ ["--i" as string]: 2 }}>
-          <span className="etykieta etykieta-xl">Podnieście rękę: 1, 2 albo 3</span>
-          <span className="text-[24px] text-tusz-3">Jesteś zwiadowcą. Co odpowiadasz?</span>
+          <span className="etykieta etykieta-xl">Dylemat moralny zwiadowcy</span>
+          <span className="text-[24px] text-tusz-3">Wybierz odpowiedź, aby zobaczyć reakcję Koniewa</span>
         </div>
 
         {WYBORY.map((w) => {
@@ -97,7 +95,7 @@ export function GlosowanieJury() {
             </>
           ) : (
             <p className="text-[30px] leading-snug text-tusz-2">
-              W grze każdy uczeń staje przed takim wyborem, a potem widzi, co z niego wynika.
+              W grze uczeń staje przed realnymi dylematami — każda decyzja odsłania inną perspektywę i konsekwencje.
             </p>
           )}
         </div>

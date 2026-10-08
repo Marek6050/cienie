@@ -2,7 +2,7 @@
 export const ZESPOL_LUDZIE = [
   { slug: "michal-kalamaga", imie: "Michał Kałamaga", rola: "Strona techniczna" },
   { slug: "marek-garbacz", imie: "Marek Garbacz", rola: "Strona techniczna" },
-  { slug: "lukasz-gucwinski", imie: "Łukasz Gucwiński", rola: "Researcher historyczny" },
-  { slug: "jakub-witnik", imie: "Jakub Witnik", rola: "Oprawa graficzna i materiały" },
-  { slug: "marcin-kacperczyk", imie: "Marcin Kacperczyk", rola: "Research historyczny i kontakt z muzeami" },
+  { slug: "lukasz-gucwinski", imie: "Łukasz Gucwiński", rola: "Research historyczny i redakcja tekstów" },
+  { slug: "jakub-witnik", imie: "Jakub Witnik", rola: "Oprawa graficzna i materiały audiowizualne" },
+  { slug: "marcin-kacperczyk", imie: "Marcin Kacperczyk", rola: "Research historyczny i kontakt z muzeami oraz nauczycielami" },
 ] as const;

@@ -1,14 +1,14 @@
 import Image from "next/image";
 
-/** Orzeł — znak platformy. Plik: public/logo.png (przezroczyste tło). */
+/** Emblemat platformy — Cienie Rzeczypospolitej. Plik: public/Cienie Rzeczypospolitej – Emblemat Historii2.png */
 export function Logo({ rozmiar = 32, className = "" }: { rozmiar?: number; className?: string }) {
   return (
     <Image
-      src="/logo.png"
-      alt=""
+      src="/Cienie Rzeczypospolitej – Emblemat Historii2.png"
+      alt="Cienie Rzeczypospolitej"
       width={rozmiar}
       height={rozmiar}
-      className={`shrink-0 ${className}`}
+      className={`shrink-0 object-contain ${className}`}
       aria-hidden="true"
     />
   );

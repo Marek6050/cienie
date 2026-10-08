@@ -15,6 +15,7 @@ import {
   IkonaLupa,
   IkonaRozgalezienie,
   IkonaZegar,
+  IkonaNotatka,
 } from "@/components/ikony";
 
 /* ------------------------------------------------------------------ pomocnicze */
@@ -79,7 +80,7 @@ export function Otwarcie() {
       <div className="grid h-full grid-cols-[1.2fr_0.8fr] gap-6">
         <Wej className="karta flex flex-col justify-between !p-[64px]">
           <div className="flex items-center justify-between">
-            <span className="etykieta etykieta-xl">Akademia STEM 2026 · Projekt nr 2</span>
+            <span className="etykieta etykieta-xl">Akademia STEM 2026</span>
             <ZnakPlatformy rozmiar={92} />
           </div>
           <div>
@@ -93,9 +94,19 @@ export function Otwarcie() {
             </p>
           </div>
           <div className="flex items-end justify-between gap-6">
-            <p className="max-w-[560px] text-[26px] leading-snug text-tusz-3">
-              Zespół Szkół Technicznych i Ogólnokształcących w Kędzierzynie-Koźlu
-            </p>
+            <div className="flex items-center gap-6">
+              <Image
+                src="/cropped-Logo-z-napisem.png"
+                alt="Logo ZSTiO"
+                width={190}
+                height={64}
+                className="h-16 w-auto object-contain"
+                priority
+              />
+              <p className="max-w-[480px] text-[24px] leading-snug text-tusz-3">
+                Zespół Szkół Technicznych i Ogólnokształcących w Kędzierzynie-Koźlu
+              </p>
+            </div>
             <p className="font-mono text-[34px] font-medium text-akcent-ciemny">{ADRES_LANDINGU}</p>
           </div>
         </Wej>
@@ -254,6 +265,7 @@ export function Cel() {
     { Ikona: IkonaLupa, t: "Krytyczne myślenie i praca ze źródłami" },
     { Ikona: IkonaOsoby, t: "Historia z perspektywy człowieka i jego decyzji" },
     { Ikona: IkonaZegar, t: "Krótsze przygotowanie nauczyciela do lekcji" },
+    { Ikona: IkonaNotatka, t: "Zbieranie feedbacku i ulepszanie projektu" },
   ];
   return (
     <Slajd>
@@ -279,14 +291,14 @@ export function Cel() {
           <Wej i={3}>
             <p className="font-mono text-[24px] tracking-[0.1em] text-tusz-3 uppercase">Cele szczegółowe</p>
           </Wej>
-          <ol className="mt-5 grid flex-1 grid-rows-4 gap-5">
+          <ol className="mt-5 grid flex-1 grid-rows-5 gap-3.5">
             {szczegolowe.map((c, k) => (
-              <Wej as="li" key={c.t} i={4 + k} className="karta flex items-center gap-8 !px-9 !py-0">
-                <span className="flex h-[84px] w-[84px] shrink-0 items-center justify-center rounded-2xl bg-akcent-mgla text-akcent">
-                  <c.Ikona className="h-11 w-11" />
+              <Wej as="li" key={c.t} i={4 + k} className="karta flex items-center gap-7 !px-8 !py-0">
+                <span className="flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-2xl bg-akcent-mgla text-akcent">
+                  <c.Ikona className="h-9 w-9" />
                 </span>
-                <span className="font-mono text-[34px] text-tusz-3">{k + 1}</span>
-                <span className="h-sekcji text-[42px] leading-[1.1] text-tusz">{c.t}</span>
+                <span className="font-mono text-[30px] text-tusz-3">{k + 1}</span>
+                <span className="h-sekcji text-[36px] leading-[1.15] text-tusz">{c.t}</span>
               </Wej>
             ))}
           </ol>
@@ -402,12 +414,14 @@ export function Nauczyciele() {
   );
 }
 
-/* ------------------------------------------------------------------ 8. decyzja jury */
+/* ------------------------------------------------------------------ 8. przykładowa scena */
 
 export function DecyzjaJury() {
   return (
     <Slajd>
-      <Tytul etykieta="Decyzja jury">Teraz Wy podejmujecie decyzję.</Tytul>
+      <Tytul etykieta="Przykładowa scena z gry" pod="Rozkaz Koniewa: zwiadowca staje przed dylematem moralnym.">
+        Interaktywna scena z gry.
+      </Tytul>
       <div className="min-h-0 flex-1">
         <GlosowanieJury />
       </div>
@@ -415,12 +429,12 @@ export function DecyzjaJury() {
   );
 }
 
-/** Tylko w pliku PPTX: tam nie ma interaktywnego głosowania, więc pokazujemy wszystkie odpowiedzi gry. */
+/** Tylko w pliku PPTX: tam nie ma interaktywnego podglądu, więc pokazujemy odpowiedzi gry. */
 export function OdpowiedziGry() {
   return (
     <Slajd>
-      <Tytul etykieta="Decyzja jury" pod="Tak odpowiada gra. Każdy uczeń staje przed takim wyborem i od razu widzi konsekwencje.">
-        Rozkaz Koniewa: odpowiedzi gry.
+      <Tytul etykieta="Przykładowa scena z gry" pod="Tak odpowiada gra. Każdy uczeń staje przed dylematem moralnym i od razu widzi jego konsekwencje.">
+        Rozkaz Koniewa: reakcja na decyzję gracza.
       </Tytul>
       <div className="grid flex-1 grid-cols-3 gap-6">
         {WYBORY_JURY.map((w, k) => (
@@ -528,7 +542,7 @@ export function TwardeDane() {
 /* ------------------------------------------------------------------ 10. technologie */
 
 export function Technologie() {
-  const stos = ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "Turbopack", "Unity WebGL", "i18n PL / EN", "MySQL 8", "Docker"];
+  const stos = ["Next.js", "React", "TypeScript", "Tailwind CSS", "Turbopack", "i18n PL / EN", "MySQL", "Docker"];
   return (
     <Slajd>
       <Tytul etykieta="Użyte technologie" pod="AI przyspiesza pracę. Źródła, scenariusz i decyzje są nasze.">
@@ -554,7 +568,7 @@ export function Technologie() {
             ))}
           </ul>
           <p className="mt-auto pt-4 text-[24px] leading-snug text-tusz-2">
-            Aplikacja webowa działa w przeglądarce na komputerze i telefonie. Mapa to build Unity WebGL.
+            Aplikacja webowa działa w przeglądarce na komputerze i telefonie.
           </p>
         </Wej>
 
@@ -574,12 +588,6 @@ export function Technologie() {
           <p className="mt-auto pt-6 text-[25px] leading-snug text-white/80">Treści historyczne pochodzą ze źródeł, nie z AI.</p>
         </Wej>
       </div>
-      <Wej i={5} className="karta karta-ciemna mt-5 flex shrink-0 items-center gap-6 !px-10 !py-5">
-        <IkonaWykres className="h-9 w-9 shrink-0 text-[#b9adff]" />
-        <p className="text-[28px] text-white">
-          Dowód: <strong className="font-semibold">ta prezentacja to strona Next.js</strong> z tej samej platformy.
-        </p>
-      </Wej>
     </Slajd>
   );
 }
@@ -588,23 +596,77 @@ export function Technologie() {
 
 export function DalszeKroki() {
   const kroki = [
-    { t: "Współpraca z nauczycielami", o: "Testy w kolejnych klasach i dopracowanie lekcji z ich opiniami." },
-    { t: "Współpraca z muzeami i domami kultury", o: "Wspólne historie oparte na ich zbiorach i archiwach." },
-    { t: "Rozbudowa platformy o kolejne lekcje", o: "Ten sam silnik, nowe wydarzenia historyczne." },
-    { t: "Promocja narzędzia", o: "Docieramy z platformą do szkół i instytucji." },
+    {
+      nr: "01",
+      tag: "Edukacja i szkoły",
+      t: "Współpraca ze szkołami",
+      o: "Testy w kolejnych klasach i dopracowanie lekcji z uwzględnieniem opinii uczniów i nauczycieli.",
+      logoSrc: "/cropped-Logo-z-napisem.png",
+      logoAlt: "ZSTiO i szkoły partnerskie",
+      logoClass: "h-[65px] w-auto",
+      ton: "karta-mgla",
+      ciemny: false,
+    },
+    {
+      nr: "02",
+      tag: "Partner merytoryczny",
+      t: "Dom Współpracy Polsko-Niemieckiej",
+      o: "Wspólne opracowanie trudnych wątków historii Śląska, kwerenda archiwów i perspektywa międzykulturowa.",
+      logoSrc: "/cropped-logo-poziome-CZARNE.png",
+      logoAlt: "Dom Współpracy Polsko-Niemieckiej",
+      logoClass: "h-[85px] w-auto",
+      ton: "karta-piasek",
+      ciemny: false,
+    },
+    {
+      nr: "03",
+      tag: "Partner technologiczny",
+      t: "Fundacja Generacja Innowacja",
+      o: "Wsparcie technologiczne, mentoring innowacyjny oraz pomoc w skalowaniu i rozwoju platformy.",
+      logoSrc: "/GI_LOGOTYP_A_PELNE.png",
+      logoAlt: "Fundacja Generacja Innowacja",
+      logoClass: "h-[80px] w-auto",
+      ton: "karta-mgla",
+      ciemny: false,
+    },
+    {
+      nr: "04",
+      tag: "Rozwój platformy",
+      t: "Kolejne lekcje i instytucje",
+      o: "Nowe wydarzenia historyczne na tym samym silniku oraz ogólnopolska promocja i wdrożenia.",
+      logoSrc: "/Cienie Rzeczypospolitej – Emblemat Historii2.png",
+      logoAlt: "Cienie Rzeczypospolitej",
+      logoClass: "h-[90px] w-auto",
+      ton: "karta-akcent",
+      ciemny: true,
+    },
   ];
   return (
     <Slajd>
-      <Tytul etykieta="Dalsze kroki" pod="Od działającego prototypu do narzędzia, z którego korzystają szkoły i instytucje.">
-        Co dalej z platformą.
+      <Tytul etykieta="Dalsze kroki" pod="Od działającego prototypu do narzędzia, z którego korzystają szkoły i instytucje w całej Polsce.">
+        Partnerstwa i rozwój platformy.
       </Tytul>
       <div className="grid flex-1 grid-cols-4 gap-6">
         {kroki.map((k, i) => (
-          <Wej key={k.t} i={i + 1} className={`karta flex flex-col justify-between !p-10 ${i === 3 ? "karta-akcent" : i % 2 ? "karta-piasek" : "karta-mgla"}`}>
-            <span className={`font-mono text-[34px] ${i === 3 ? "text-white/70" : "text-tusz-3"}`}>0{i + 1}</span>
+          <Wej key={k.t} i={i + 1} className={`karta flex flex-col justify-between !p-10 ${k.ton}`}>
+            <div className="flex items-center justify-between">
+              <span className={`font-mono text-[34px] ${k.ciemny ? "text-white/70" : "text-tusz-3"}`}>{k.nr}</span>
+              <span className={`etykieta etykieta-xl ${k.ciemny ? "etykieta-biala" : "!bg-white/85"}`}>{k.tag}</span>
+            </div>
+
+            <div className={`my-6 flex h-[160px] items-center justify-center rounded-2xl p-5 shadow-sm ${k.ciemny ? "bg-white/12 backdrop-blur-sm" : "bg-white"}`}>
+              <Image
+                src={k.logoSrc}
+                alt={k.logoAlt}
+                width={320}
+                height={130}
+                className={`object-contain ${k.logoClass}`}
+              />
+            </div>
+
             <div>
-              <h3 className="h-sekcji text-[46px] leading-[1.08]">{k.t}</h3>
-              <p className={`mt-5 text-[28px] leading-snug ${i === 3 ? "text-white/85" : "text-tusz-2"}`}>{k.o}</p>
+              <h3 className="h-sekcji text-[40px] leading-[1.1]">{k.t}</h3>
+              <p className={`mt-4 text-[26px] leading-snug ${k.ciemny ? "text-white/85" : "text-tusz-2"}`}>{k.o}</p>
             </div>
           </Wej>
         ))}
@@ -624,12 +686,22 @@ export function Zakonczenie() {
   return (
     <Slajd>
       <div className="grid min-h-0 flex-1 grid-cols-[1.25fr_0.75fr] gap-6">
-        <Wej className="karta flex flex-col justify-between !p-[48px]">
-          <div className="flex items-center gap-5">
+        <Wej className="karta relative flex flex-col justify-between overflow-hidden !p-[48px]">
+          {/* Logo aplikacji w tle */}
+          <div className="pointer-events-none absolute -right-16 -bottom-16 h-[500px] w-[500px] select-none opacity-[0.08]">
+            <Image
+              src="/Cienie Rzeczypospolitej – Emblemat Historii2.png"
+              alt=""
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+          <div className="relative z-10 flex items-center gap-5">
             <ZnakPlatformy rozmiar={72} />
             <span className="etykieta etykieta-xl">Cienie Rzeczypospolitej</span>
           </div>
-          <h2 className="h-sekcji text-[88px] leading-[1.02] text-balance text-tusz">
+          <h2 className="relative z-10 h-sekcji text-[88px] leading-[1.02] text-balance text-tusz">
             Lekcja historii nie musi być nudna.
             <span className="block text-akcent">Ta zostaje w pamięci.</span>
           </h2>

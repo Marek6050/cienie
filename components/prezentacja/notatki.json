@@ -64,12 +64,13 @@
     ]
   },
   {
-    "kto": "Michał, cała sala",
+    "kto": "Michał",
     "czas": "1:35–1:58",
     "kryterium": "Prezentacja, zapamiętywalność",
     "punkty": [
-      "Jury podnosi rękę: 1, 2 albo 3. Wciśnij klawisz 1/2/3 i pokaż odpowiedź gry.",
-      "Puenta: tak samo wybiera każdy uczeń i od razu widzi konsekwencje.",
+      "Przykładowa scena z gry: rozkaz marszałka Koniewa w bunkrze pod Gogolinem.",
+      "Pokaż trzy opcje odpowiedzi zwiadowcy (1, 2, 3) i reakcję gry na każdą z nich.",
+      "Puenta: uczeń staje przed realnym dylematem moralnym i od razu widzi konsekwencje swoich decyzji.",
       "Maksymalnie 23 sekundy."
     ]
   },
@@ -78,8 +79,8 @@
     "czas": "w ramach slajdu 8",
     "kryterium": "Prezentacja, zapamiętywalność (tylko w pliku PPTX)",
     "punkty": [
-      "Slajd z odpowiedziami gry: wskaż tę, którą wybrało jury, i przeczytaj odpowiedź Koniewa.",
-      "Puenta: każdy uczeń staje przed takim wyborem i od razu widzi konsekwencje.",
+      "Slajd z odpowiedziami gry: omów reakcję Koniewa na poszczególne decyzje zwiadowcy.",
+      "Puenta: każdy uczeń staje przed takim dylematem i od razu widzi konsekwencje.",
       "Potem przejdź dalej do danych."
     ],
     "tylkoEksport": true
@@ -99,8 +100,9 @@
     "czas": "2:25–2:42",
     "kryterium": "Wykorzystanie technologii / AI",
     "punkty": [
-      "Rozdziel: AI (Claude Code do kodu, Gemini Nano Banana 2 Pro do grafik) i nasza praca.",
-      "Stos: Next.js 16, React 19, Unity WebGL dla mapy. Ta prezentacja jest stroną z platformy."
+      "Rozdziel: AI (Claude Code do kodu, Gemini do grafik) i nasza praca.",
+      "Stos: Next.js, React, TypeScript, Tailwind CSS. Aplikacja webowa działa w przeglądarce.",
+      "Treści historyczne pochodzą ze sprawdzonych źródeł, nie z AI."
     ]
   },
   {
@@ -108,8 +110,8 @@
     "czas": "2:42–2:52",
     "kryterium": "Wykonalność, wpływ",
     "punkty": [
-      "Cztery kroki: nauczyciele, muzea i domy kultury, kolejne lekcje, promocja.",
-      "Mów tylko to, co jest prawdą o kontaktach z muzeami."
+      "Cztery filary dalszego rozwoju: współpraca ze szkołami, partnerstwo merytoryczne z Domem Współpracy Polsko-Niemieckiej,",
+      "partnerstwo technologiczne z Fundacją Generacja Innowacja oraz kolejne lekcje i wdrożenia."
     ]
   },
   {
